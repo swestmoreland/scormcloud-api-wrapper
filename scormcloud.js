@@ -246,6 +246,34 @@ SCORMCloud.prototype.getCourseTags = function (callback, courseid) {
     });
 }
 
+SCORMCloud.prototype.setCourseTags = function (callback, courseid, tags) {
+
+    var url = new URL('api?method=rustici.tagging.setCourseTags', this.serviceUrl);
+
+    // The id of the course for which the tags will be set.
+    if (courseid) url.searchParams.set('courseid', courseid);
+
+    // A comma separated list of tags to set for the course.
+    if (tags) url.searchParams.set('tags', tags);
+
+    this._get(url, function (error, rawData) {
+
+        console.log(rawData);
+        parseString(rawData, { explicitArray: false, mergeAttrs: true }, function (err, json) {
+            if (err) throw err;
+
+            if (json.rsp.stat === 'fail') return callback(new Error(json.rsp.err.msg), json.rsp.err);
+
+            console.log(util.inspect(json, false, null));
+
+            let data = true;
+
+            return callback(null, data);
+        });
+
+    });
+}
+
 SCORMCloud.prototype.getLearnerTags = function (callback, learnerid) {
 
     var url = new URL('api?method=rustici.tagging.getLearnerTags', this.serviceUrl);
