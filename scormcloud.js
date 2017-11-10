@@ -246,6 +246,69 @@ SCORMCloud.prototype.getLearnerTags = function (callback, learnerid) {
     });
 }
 
+SCORMCloud.prototype.setLearnerTags = function (callback, learnerid, tags) {
+
+    var url = new URL('api?method=rustici.tagging.setLearnerTags', this.serviceUrl);
+
+    // The id of the learner for which the tags will be set.
+    if (learnerid) url.searchParams.set('learnerid', learnerid);
+
+    // A comma separated list of tags to set for the learner.
+    if (tags) url.searchParams.set('tags', tags);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.has(json.rsp, 'success');
+
+        return callback(error, data);
+
+    });
+}
+
+SCORMCloud.prototype.addLearnerTag = function (callback, learnerid, tag) {
+
+    var url = new URL('api?method=rustici.tagging.addLearnerTag', this.serviceUrl);
+
+    // The id of the learner which the given tag will be associated with.
+    if (learnerid) url.searchParams.set('learnerid', learnerid);
+
+    // The tag to associate with the learner.
+    if (tag) url.searchParams.set('tag', tag);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.has(json.rsp, 'success');
+
+        return callback(error, data);
+
+    });
+}
+
+SCORMCloud.prototype.removeLearnerTag = function (callback, learnerid, tag) {
+
+    var url = new URL('api?method=rustici.tagging.removeLearnerTag', this.serviceUrl);
+
+    // The id of the learner which the given tag will be associated with.
+    if (learnerid) url.searchParams.set('learnerid', learnerid);
+
+    // The tag to remove from the learner.
+    if (tag) url.searchParams.set('tag', tag);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.has(json.rsp, 'success');
+
+        return callback(error, data);
+
+    });
+}
+
 SCORMCloud.prototype.getRegistrationTags = function (callback, regid) {
 
     var url = new URL('api?method=rustici.tagging.getRegistrationTags', this.serviceUrl);
@@ -258,6 +321,69 @@ SCORMCloud.prototype.getRegistrationTags = function (callback, regid) {
         if (error) return callback(error, json);
 
         let data = _.flatten(_.toArray(json.rsp.tags));
+
+        return callback(error, data);
+
+    });
+}
+
+SCORMCloud.prototype.setRegistrationTags = function (callback, regid, tags) {
+
+    var url = new URL('api?method=rustici.tagging.setRegistrationTags', this.serviceUrl);
+
+    // The id of the registration for which the tags will be set.
+    if (regid) url.searchParams.set('regid', regid);
+
+    // A comma separated list of tags to set for the registration.
+    if (tags) url.searchParams.set('tags', tags);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.has(json.rsp, 'success');
+
+        return callback(error, data);
+
+    });
+}
+
+SCORMCloud.prototype.addRegistrationTag = function (callback, regid, tag) {
+
+    var url = new URL('api?method=rustici.tagging.addRegistrationTag', this.serviceUrl);
+
+    // The id of the registration which the given tag will be associated with.
+    if (regid) url.searchParams.set('regid', regid);
+
+    // The tag to associate with the registration.
+    if (tag) url.searchParams.set('tag', tag);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.has(json.rsp, 'success');
+
+        return callback(error, data);
+
+    });
+}
+
+SCORMCloud.prototype.removeRegistrationTag = function (callback, regid, tag) {
+
+    var url = new URL('api?method=rustici.tagging.removeRegistrationTag', this.serviceUrl);
+
+    // The id of the registration which the given tag will be associated with.
+    if (regid) url.searchParams.set('regid', regid);
+
+    // The tag to remove from the registration.
+    if (tag) url.searchParams.set('tag', tag);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.has(json.rsp, 'success');
 
         return callback(error, data);
 
