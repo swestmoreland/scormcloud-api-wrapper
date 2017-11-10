@@ -29,7 +29,7 @@ api.getCourseList(function (error, result) {
     learningStandard: 'scorm_12',
     createDate: '2017-11-10T16:30:00.000+0000'
   }]
-   */
+  */
 });
 ```
 
@@ -51,6 +51,15 @@ api.authPing(function (error, result) {
 ### Course Service
 
 #### courseExists(callback, courseid)
+
+```js
+api.courseExists(function (error, result) {
+  console.log(result)
+  /*
+  true
+  */
+}, '810348d9-318e-48d5-b352-a1f6eb3a92cd');
+```
 
 #### deleteCourse(callback, courseid, [email])
 
