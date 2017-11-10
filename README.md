@@ -52,6 +52,8 @@ api.authPing(function (error, result) {
 
 #### courseExists(callback, courseid)
 
+This method is used to check a whether or not the specified course exists.
+
 ```js
 api.courseExists(function (error, result) {
   console.log(result)
