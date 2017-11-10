@@ -55,6 +55,27 @@ SCORMCloud.prototype.courseExists = function (callback, courseid) {
     });
 }
 
+SCORMCloud.prototype.deleteCourse = function (callback, courseid, email) {
+
+    var url = new URL('api?method=rustici.course.deleteCourse', this.serviceUrl);
+
+    // The id used to identify the course for deletion.
+    if (courseid) url.searchParams.set('courseid', courseid);
+
+    // An email address associated with an existing SCORM Cloud website user. If this parameter is included, user information will be attached to this event in the event history on the SCORM Cloud website.
+    if (email) url.searchParams.set('email', email);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.has(json.rsp, 'success');
+
+        return callback(error, data);
+
+    });
+}
+
 SCORMCloud.prototype.getCourseList = function (callback, filter, tags) {
 
     var url = new URL('api?method=rustici.course.getCourseList', this.serviceUrl);
@@ -106,6 +127,42 @@ SCORMCloud.prototype.registrationExists = function (callback, regid) {
         if (error) return callback(error, json);
 
         let data = _.lowerCase(json.rsp.result) === 'true' ? true : false;
+
+        return callback(error, data);
+
+    });
+}
+
+SCORMCloud.prototype.deleteRegistration = function (callback, regid) {
+
+    var url = new URL('api?method=rustici.registration.deleteRegistration', this.serviceUrl);
+
+    // The unique identifier for this registration.
+    if (regid) url.searchParams.set('regid', regid);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.has(json.rsp, 'success');
+
+        return callback(error, data);
+
+    });
+}
+
+SCORMCloud.prototype.resetRegistration = function (callback, regid) {
+
+    var url = new URL('api?method=rustici.registration.resetRegistration', this.serviceUrl);
+
+    // The unique identifier for this registration.
+    if (regid) url.searchParams.set('regid', regid);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.has(json.rsp, 'success');
 
         return callback(error, data);
 
