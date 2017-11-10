@@ -16,8 +16,8 @@ var SCORMCloud = require('scormcloud-api-wrapper');
 var api = new SCORMCloud('appid', 'secretKey');
 
 // Get things done.
-api.getCourseList(function (error, courses) {
-  console.log(courses);
+api.getCourseList(function (error, result) {
+  console.log(result);
   /*
   [{
     id: '810348d9-318e-48d5-b352-a1f6eb3a92cd',
@@ -27,8 +27,37 @@ api.getCourseList(function (error, courses) {
     size: 3023399,
     tags: [ 'example' ],
     learningStandard: 'scorm_12',
-    createDate: '2017-11-10T22:00:00.000+0000'
-   }]
+    createDate: '2017-11-10T16:30:00.000+0000'
+  }]
    */
 });
 ```
+
+## API
+
+### Reporting Service
+
+#### getAccountInfo(callback)
+
+```js
+api.getAccountInfo(function (error, result) {
+  console.log(result);
+  /*
+  {
+    email: 'john.doe@example.com',
+    firstname: 'John',
+    lastname: 'Doe',
+    company: '',
+    accounttype: 'little',
+    reglimit: 50,
+    strictlimit: true,
+    createdate: '2015-11-10T15:30:00+0000',
+    usage: {
+      monthstart: '2017-11-10T15:30:00+0000',
+      regcount: 0,
+      totalregistrations: 29,
+      totalcourses: 40
+    }
+  }
+  */
+});
