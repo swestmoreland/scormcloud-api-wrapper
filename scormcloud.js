@@ -15,6 +15,25 @@ var SCORMCloud = function (appid, secretKey) {
 module.exports = SCORMCloud;
 
 //
+// Debug Service
+//
+
+SCORMCloud.prototype.authPing = function (callback) {
+
+    var url = new URL('api?method=rustici.debug.authPing', this.serviceUrl);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.has(json.rsp, 'pong');
+
+        return callback(error, data);
+
+    });
+}
+
+//
 // Course Service
 //
 
