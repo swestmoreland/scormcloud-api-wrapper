@@ -207,6 +207,27 @@ SCORMCloud.prototype.addCourseTag = function (callback, courseid, tag) {
     });
 }
 
+SCORMCloud.prototype.removeCourseTag = function (callback, courseid, tag) {
+
+    var url = new URL('api?method=rustici.tagging.removeCourseTag', this.serviceUrl);
+
+    // The id of the course which the given tag will be associated with.
+    if (courseid) url.searchParams.set('courseid', courseid);
+
+    // The tag to remove from the course.
+    if (tag) url.searchParams.set('tag', tag);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.has(json.rsp, 'success');
+
+        return callback(error, data);
+
+    });
+}
+
 SCORMCloud.prototype.getLearnerTags = function (callback, learnerid) {
 
     var url = new URL('api?method=rustici.tagging.getLearnerTags', this.serviceUrl);
@@ -293,8 +314,6 @@ SCORMCloud.prototype._get = function (url, callback) {
     url.searchParams.append('sig', this._getSig(url));
 
     https.get(url, (res) => {
-
-        console.log(res);
 
         const contentType = res.headers['content-type'];
         const { statusCode } = res;
