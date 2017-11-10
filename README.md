@@ -45,15 +45,56 @@ api.authPing(function (error, result) {
   /*
   true
   */
+});
 ```
 
 ### Course Service
 
+#### courseExists(callback, courseid)
+
+#### deleteCourse(callback, courseid, [email])
+
+#### getCourseList(callback, [filter], [tags])
+
 ### Registration Service
+
+#### registrationExists(callback, regid)
+
+#### deleteRegistration(callback, regid)
+
+#### resetRegistration(callback, regid)
+
+#### getRegistrationList(callback, [courseid], [learnerid], [after], [until])
 
 ### Invitation Service
 
+#### getInvitationList(callback, [filter], [coursefilter])
+
 ### Tagging Service
+
+#### getCourseTags(callback, courseid)
+
+#### setCourseTags(callback, courseid, tags)
+
+#### addCourseTag(callback, courseid, tag)
+
+#### removeCourseTag(callback, courseid, tag)
+
+#### getLearnerTags(callback, learnerid)
+
+#### setLearnerTags(callback, learnerid, tags)
+
+#### addLearnerTag(callback, learnerid, tag)
+
+#### removeLearnerTag(callback, learnerid, tag)
+
+#### getRegistrationTags(callback, regid)
+
+#### setRegistrationTags(callback, regid, tags)
+
+#### addRegistrationTag(callback, regid, tag)
+
+#### removeRegistrationTag(callback, regid, tag)
 
 ### Reporting Service
 
@@ -81,3 +122,4 @@ api.getAccountInfo(function (error, result) {
   }
   */
 });
+```
