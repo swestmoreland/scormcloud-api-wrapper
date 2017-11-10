@@ -35,6 +35,26 @@ api.getCourseList(function (error, result) {
 
 ## API
 
+### Debug Service
+
+#### authPing(callback)
+
+```js
+api.authPing(function (error, result) {
+  console.log(result);
+  /*
+  true
+  */
+```
+
+### Course Service
+
+### Registration Service
+
+### Invitation Service
+
+### Tagging Service
+
 ### Reporting Service
 
 #### getAccountInfo(callback)
