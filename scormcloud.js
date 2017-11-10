@@ -14,59 +14,6 @@ var SCORMCloud = function (appid, secretKey) {
 }
 module.exports = SCORMCloud;
 
-SCORMCloud.prototype._get = function (url, callback) {
-
-    url.searchParams.set('appid', this.appid);
-
-    // See https://cloud.scorm.com/docs/advanced/communication.html#ts-parameter
-    url.searchParams.set('ts', moment.utc().format('YYYYMMDDHHmmss'));
-
-    // See https://cloud.scorm.com/docs/advanced/communication.html#sig-parameter
-    url.searchParams.sort();
-    url.searchParams.append('sig', this._getSig(url));
-
-    https.get(url, (res) => {
-
-        const contentType = res.headers['content-type'];
-        const { statusCode } = res;
-
-        let error;
-        if (statusCode !== 200) {
-            error = new Error(`Request Failed. Status Code: ${statusCode}`);
-        } else if (!/^text\/xml/.test(contentType)) {
-            error = new Error(`Invalid content-type. Expected text/xml but received ${contentType}`);
-        }
-        if (error) {
-            console.error(error.message);
-            res.resume();
-            return;
-        }
-
-        res.setEncoding('utf8');
-
-        let rawData = '';
-        res.on('data', (chunk) => { rawData += chunk; });
-        res.on('end', () => {
-            callback(null, rawData);
-        });
-
-    }).on('error', (e) => {
-        console.error(`Got error: ${e.message}`);
-    });
-
-}
-
-SCORMCloud.prototype._getSig = function (url) {
-
-    let parameterString = '';
-    url.searchParams.forEach((value, name) => {
-        parameterString += `${name}${value}`;
-    });
-
-    return md5(this.secretKey + parameterString);
-
-}
-
 //
 // Course Service
 //
@@ -266,7 +213,7 @@ SCORMCloud.prototype.setCourseTags = function (callback, courseid, tags) {
 
             console.log(util.inspect(json, false, null));
 
-            let data = true;
+            let data = _.has(json.rsp, 'success');
 
             return callback(null, data);
         });
@@ -363,4 +310,61 @@ SCORMCloud.prototype.getAccountInfo = function (callback) {
         });
 
     });
+}
+
+//
+// Helper Functions
+//
+
+SCORMCloud.prototype._get = function (url, callback) {
+
+    url.searchParams.set('appid', this.appid);
+
+    // See https://cloud.scorm.com/docs/advanced/communication.html#ts-parameter
+    url.searchParams.set('ts', moment.utc().format('YYYYMMDDHHmmss'));
+
+    // See https://cloud.scorm.com/docs/advanced/communication.html#sig-parameter
+    url.searchParams.sort();
+    url.searchParams.append('sig', this._getSig(url));
+
+    https.get(url, (res) => {
+
+        const contentType = res.headers['content-type'];
+        const { statusCode } = res;
+
+        let error;
+        if (statusCode !== 200) {
+            error = new Error(`Request Failed. Status Code: ${statusCode}`);
+        } else if (!/^text\/xml/.test(contentType)) {
+            error = new Error(`Invalid content-type. Expected text/xml but received ${contentType}`);
+        }
+        if (error) {
+            console.error(error.message);
+            res.resume();
+            return;
+        }
+
+        res.setEncoding('utf8');
+
+        let rawData = '';
+        res.on('data', (chunk) => { rawData += chunk; });
+        res.on('end', () => {
+            callback(null, rawData);
+        });
+
+    }).on('error', (e) => {
+        console.error(`Got error: ${e.message}`);
+    });
+
+}
+
+SCORMCloud.prototype._getSig = function (url) {
+
+    let parameterString = '';
+    url.searchParams.forEach((value, name) => {
+        parameterString += `${name}${value}`;
+    });
+
+    return md5(this.secretKey + parameterString);
+
 }
