@@ -37,6 +37,24 @@ SCORMCloud.prototype.authPing = function (callback) {
 // Course Service
 //
 
+SCORMCloud.prototype.courseExists = function (callback, courseid) {
+
+    var url = new URL('api?method=rustici.course.exists', this.serviceUrl);
+
+    // The id used to identify this course.
+    if (courseid) url.searchParams.set('courseid', courseid);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.lowerCase(json.rsp.result) === 'true' ? true : false;
+
+        return callback(error, data);
+
+    });
+}
+
 SCORMCloud.prototype.getCourseList = function (callback, filter, tags) {
 
     var url = new URL('api?method=rustici.course.getCourseList', this.serviceUrl);
@@ -75,6 +93,24 @@ SCORMCloud.prototype.getCourseList = function (callback, filter, tags) {
 //
 // Registration Service
 //
+
+SCORMCloud.prototype.registrationExists = function (callback, regid) {
+
+    var url = new URL('api?method=rustici.course.exists', this.serviceUrl);
+
+    // The id used to identify this registration.
+    if (regid) url.searchParams.set('regid', regid);
+
+    this._get(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = _.lowerCase(json.rsp.result) === 'true' ? true : false;
+
+        return callback(error, data);
+
+    });
+}
 
 SCORMCloud.prototype.getRegistrationList = function (callback, courseid, learnerid, after, until) {
 
