@@ -53,20 +53,20 @@ api.authPing(function (error, result) {
 
 ### Course Service
 
-#### courseExists(callback, courseid)
+#### courseExists(courseid, callback)
 
 ```js
-api.courseExists(function (error, result) {
+api.courseExists('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result) {
   console.log(result)
   /*
   true
   */
-}, '810348d9-318e-48d5-b352-a1f6eb3a92cd');
+});
 ```
 
-#### deleteCourse(callback, courseid, [email])
+#### deleteCourse(courseid, [options], callback)
 
-#### getCourseList(callback, [filter], [tags])
+#### getCourseList([options], callback)
 
 ```js
 api.getCourseList(function (error, result) {
@@ -91,22 +91,22 @@ api.getCourseList(function (error, result) {
 
 ### Registration Service
 
-#### registrationExists(callback, regid)
+#### registrationExists(regid, callback)
 
 ```js
-api.registrationExists(function (error, result) {
+api.registrationExists('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (error, result) {
   console.log(result)
   /*
   true
   */
-}, '2ffab123-cb7c-4744-af8e-493a6c74e65b');
+});
 ```
 
-#### deleteRegistration(callback, regid)
+#### deleteRegistration(regid, callback)
 
-#### resetRegistration(callback, regid)
+#### resetRegistration(regid, callback)
 
-#### getRegistrationList(callback, [courseid], [learnerid], [after], [until])
+#### getRegistrationList([options], callback)
 
 ```js
 api.getRegistrationList(function (error, result) {
@@ -135,69 +135,69 @@ api.getRegistrationList(function (error, result) {
 
 ### Invitation Service
 
-#### getInvitationList(callback, [filter], [coursefilter])
+#### getInvitationList([options], callback)
 
 ### Tagging Service
 
-#### getCourseTags(callback, courseid)
+#### getCourseTags(courseid, callback)
 
 ```js
-api.getCourseTags(function (error, result) {
+api.getCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result) {
   console.log(result)
   /*
   ['example', 'course']
   */
-}, '810348d9-318e-48d5-b352-a1f6eb3a92cd');
+});
 ```
 
-#### setCourseTags(callback, courseid, tags)
+#### setCourseTags(courseid, tags, callback)
 
 ```js
-api.setCourseTags(function (error, result) {
+api.setCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag1,tag2,tag3', function (error, result) {
   console.log(result)
   /*
   true
   */
-}, '810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag1,tag2,tag3');
+});
 ```
 
-#### addCourseTag(callback, courseid, tag)
+#### addCourseTag(courseid, tag, callback)
 
 ```js
-api.addCourseTag(function (error, result) {
+api.addCourseTag('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag', function (error, result) {
   console.log(result)
   /*
   true
   */
-}, '810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag');
+});
 ```
 
-#### removeCourseTag(callback, courseid, tag)
+#### removeCourseTag(courseid, tag, callback)
 
 ```js
-api.removeCourseTag(function (error, result) {
+api.removeCourseTag('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag', function (error, result) {
   console.log(result)
   /*
   true
   */
-}, '810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag');
+});
 ```
 
-#### getLearnerTags(callback, learnerid)
+#### getLearnerTags(learnerid, callback)
 
-#### setLearnerTags(callback, learnerid, tags)
+#### setLearnerTags(learnerid, tags, callback)
 
-#### addLearnerTag(callback, learnerid, tag)
+#### addLearnerTag(learnerid, tag, callback)
 
-#### removeLearnerTag(callback, learnerid, tag)
+#### removeLearnerTag(learnerid, tag, callback)
 
-#### getRegistrationTags(callback, regid)
+#### getRegistrationTags(regid, callback)
 
-#### setRegistrationTags(callback, regid, tags)
+#### setRegistrationTags(regid, tags, callback)
 
-#### addRegistrationTag(callback, regid, tag)
+#### addRegistrationTag(regid, tag, callback)
 
-#### removeRegistrationTag(callback, regid, tag)
+#### removeRegistrationTag(regid, tag, callback)
 
 ### Reporting Service
 
@@ -211,7 +211,7 @@ api.getAccountInfo(function (error, result) {
     email: 'john.doe@example.com',
     firstname: 'John',
     lastname: 'Doe',
-    company: '',
+    company: 'Acme',
     accounttype: 'little',
     reglimit: 50,
     strictlimit: true,

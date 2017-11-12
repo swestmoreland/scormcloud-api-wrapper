@@ -2,11 +2,12 @@
   "name": "scormcloud-api-wrapper",
   "version": "1.0.0",
   "description": "",
-  "main": "scormcloud.js",
+  "main": "lib/scormcloud.js",
   "dependencies": {
     "lodash": "^4.17.4",
     "md5": "^2.2.1",
     "moment": "^2.19.1",
+    "request": "^2.83.0",
     "xml2js": "^0.4.19"
   },
   "devDependencies": {},
