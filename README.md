@@ -15,7 +15,7 @@ var SCORMCloud = require('scormcloud-api-wrapper');
 // Create an instance with your API credentials.
 var api = new SCORMCloud('appid', 'secretKey');
 
-// See API documentation for more examples.
+// See API documentation for additional examples.
 api.getCourseList(function (error, result) {
   console.log(result);
   /*
@@ -47,9 +47,7 @@ Verifies that your credentials are valid and that the web service is reachable.
 ```js
 api.authPing(function (error, result) {
   console.log(result);
-  /*
-  true
-  */
+  /* true */
 });
 ```
 
@@ -61,10 +59,8 @@ Check whether or not the specified course exists.
 
 ```js
 api.courseExists('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result) {
-  console.log(result)
-  /*
-  true
-  */
+  console.log(result);
+  /* true */
 });
 ```
 
@@ -110,20 +106,34 @@ api.getCourseList(function (error, result) {
 
 #### registrationExists(regid, callback)
 
+Check whether or not the specified registration exists.
+
 ```js
 api.registrationExists('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (error, result) {
-  console.log(result)
-  /*
-  true
-  */
+  console.log(result);
+  /* true */
 });
 ```
 
 #### deleteRegistration(regid, callback)
 
+Delete the specified registration.
+
 #### resetRegistration(regid, callback)
 
+Reset the specified registration.
+
 #### getRegistrationList([options], callback)
+
+Retrieve a list of registrations associated with the `appid`.
+
+Options:
+
+ * `courseid` - Limit search to only registrations for the course specified by this courseid.
+ * `learnerid` - Limit search to only registrations for the learner specified by this learnerid.
+ * `after` - Return registrations updated (strictly) after this timestamp.
+ * `until` - Return registrations updated up to and including this timestamp.
+
 
 ```js
 api.getRegistrationList(function (error, result) {
@@ -154,16 +164,23 @@ api.getRegistrationList(function (error, result) {
 
 #### getInvitationList([options], callback)
 
+Retrieve a list of invitations that meet the filter criteria.
+
+Options:
+
+ * `filter` - A regular expression that will be used to filter the list of invitations. Specifically only those invitations whose invitation Id’s match the given expression will be returned in the list.
+ * `coursefilter` - A regular express that will be used to filter the list of invitations. Specifically only those invitations that are associated with courses whose courseid’s match the given expression will be returned in the list.
+
 ### Tagging Service
 
 #### getCourseTags(courseid, callback)
 
+Retrieve a list of tags for the specified course.
+
 ```js
 api.getCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result) {
-  console.log(result)
-  /*
-  ['example', 'course']
-  */
+  console.log(result);
+  /* ['example', 'course'] */
 });
 ```
 
@@ -171,54 +188,66 @@ api.getCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, resul
 
 ```js
 api.setCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag1,tag2,tag3', function (error, result) {
-  console.log(result)
-  /*
-  true
-  */
+  console.log(result);
+  /* true */
 });
 ```
 
 #### addCourseTag(courseid, tag, callback)
 
+Add a tag to the specified course.
+
 ```js
 api.addCourseTag('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag', function (error, result) {
-  console.log(result)
-  /*
-  true
-  */
+  console.log(result);
+  /* true */
 });
 ```
 
 #### removeCourseTag(courseid, tag, callback)
 
+Remove a tag from the specified course.
+
 ```js
 api.removeCourseTag('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag', function (error, result) {
-  console.log(result)
-  /*
-  true
-  */
+  console.log(result);
+  /* true */
 });
 ```
 
 #### getLearnerTags(learnerid, callback)
 
+Retrieve a list of tags for the specified learner.
+
 #### setLearnerTags(learnerid, tags, callback)
 
 #### addLearnerTag(learnerid, tag, callback)
 
+Add a tag to the specified learner.
+
 #### removeLearnerTag(learnerid, tag, callback)
 
+Remove a tag from the specified learner.
+
 #### getRegistrationTags(regid, callback)
+
+Retrieve a list of tags for the specified registration.
 
 #### setRegistrationTags(regid, tags, callback)
 
 #### addRegistrationTag(regid, tag, callback)
 
+Add a tag to the specified registration.
+
 #### removeRegistrationTag(regid, tag, callback)
+
+Remove a tag from the specified registration.
 
 ### Reporting Service
 
 #### getAccountInfo(callback)
+
+Retrieve information about the account associated with the `appid`.
 
 ```js
 api.getAccountInfo(function (error, result) {
