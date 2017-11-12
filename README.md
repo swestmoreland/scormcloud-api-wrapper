@@ -1,5 +1,7 @@
 # scormcloud-api-wrapper
 
+Node.js client for the [SCORM Cloud API](https://cloud.scorm.com/docs/index.html).
+
 ## Installation
 
 ```sh
@@ -186,6 +188,8 @@ api.getCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, resul
 
 #### setCourseTags(courseid, tags, callback)
 
+Set a list of tags for the specified course.
+
 ```js
 api.setCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag1,tag2,tag3', function (error, result) {
   console.log(result);
@@ -221,6 +225,8 @@ Retrieve a list of tags for the specified learner.
 
 #### setLearnerTags(learnerid, tags, callback)
 
+Set a list of tags for the specified learner.
+
 #### addLearnerTag(learnerid, tag, callback)
 
 Add a tag to the specified learner.
@@ -234,6 +240,8 @@ Remove a tag from the specified learner.
 Retrieve a list of tags for the specified registration.
 
 #### setRegistrationTags(regid, tags, callback)
+
+Set a list of tags for the specified registration.
 
 #### addRegistrationTag(regid, tag, callback)
 
