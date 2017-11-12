@@ -15,7 +15,7 @@ var SCORMCloud = require('scormcloud-api-wrapper');
 // Create an instance with your API credentials.
 var api = new SCORMCloud('appid', 'secretKey');
 
-// Get things done.
+// See API documentation for more examples.
 api.getCourseList(function (error, result) {
   console.log(result);
   /*
@@ -42,6 +42,8 @@ api.getCourseList(function (error, result) {
 
 #### authPing(callback)
 
+Verifies that your credentials are valid and that the web service is reachable.
+
 ```js
 api.authPing(function (error, result) {
   console.log(result);
@@ -55,6 +57,8 @@ api.authPing(function (error, result) {
 
 #### courseExists(courseid, callback)
 
+Check whether or not the specified course exists.
+
 ```js
 api.courseExists('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result) {
   console.log(result)
@@ -66,7 +70,20 @@ api.courseExists('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result
 
 #### deleteCourse(courseid, [options], callback)
 
+Delete the specified course.
+
+Options:
+
+ * `email` - If this parameter is included, user information will be attached to this event in the event history on the SCORM Cloud website.
+
 #### getCourseList([options], callback)
+
+Retrieve a list of courses associated with the `appid`.
+
+Options:
+
+ * `filter` - A regular expression that will be used to filter the list of courses. Specifically only those courses whose courseid’s match the given expression will be returned in the list.
+ * `tags` - A comma separated list of tags to filter results by. Results will include only courses which are tagged with every tag in the list.
 
 ```js
 api.getCourseList(function (error, result) {
