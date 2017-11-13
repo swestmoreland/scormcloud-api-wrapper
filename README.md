@@ -91,7 +91,32 @@ api.getCourseList(function (error, result) {
     {
       id: '810348d9-318e-48d5-b352-a1f6eb3a92cd',
       title: 'Example Course',
-      versions: -1,
+      registrations: 1,
+      size: 3023399,
+      tags: ['example', 'course'],
+      learningStandard: 'scorm_12',
+      createDate: '2017-11-10T16:30:00.000+0000'
+    },
+    ...
+  ]
+  */
+});
+```
+
+#### getCourseDetail(courseid, callback)
+
+```js
+api.getCourseList('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result) {
+  console.log(result);
+  /*
+  [
+    {
+      id: '810348d9-318e-48d5-b352-a1f6eb3a92cd',
+      title: 'Example Course',
+      versions: [
+        { versionId: '0', updateDate: '2017-11-13T02:43:56.000+0000' },
+        { versionId: '1', updateDate: '2017-11-13T02:54:04.000+0000' }
+      ],
       registrations: 1,
       size: 3023399,
       tags: ['example', 'course'],
