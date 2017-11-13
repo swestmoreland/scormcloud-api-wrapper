@@ -1,7 +1,7 @@
 {
   "name": "scormcloud-api-wrapper",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node.js client for the SCORM Cloud API.",
   "main": "lib/scormcloud.js",
   "dependencies": {
     "lodash": "^4.17.4",
