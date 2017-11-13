@@ -41,6 +41,44 @@ api.getCourseList(function (error, result) {
 
 ## API
 
+ - Debug Service
+   - [authPing(callback)](#authpingcallback)
+ - Course Service
+   - [courseExists(courseid, callback)](#courseexistscourseid-callback)
+   - [deleteCourse(courseid, [options], callback)](#deletecoursecourseid-options-callback)
+   - [getCourseList([options], callback)](#getcourselistoptions-callback)
+   - [getCourseDetail(courseid, callback)](#getcoursedetailcourseid-callback)
+ - Registration Service
+   - [createRegistration(courseid, regid, fname, lname, learnerid, [options], callback)]()
+   - [registrationExists(regid, callback)]()
+   - [deleteRegistration(regid, callback)]()
+   - [resetRegistration(regid, callback)]()
+   - [getRegistrationList([options], callback)]()
+   - [getRegistrationDetail(regid, callback)]()
+   - [getRegistrationResult(regid, [options], callback)]()
+   - [getRegistrationListResults([options], callback)]()
+   - [getLaunchHistory(regid, callback)]()
+   - [getLaunchInfo(launchid, callback)]()
+ - Invitation Service
+   - [createInvitation(courseid, public, [options], callback)]()
+   - [getInvitationInfo(invitationid, [options], callback)]()
+   - [getInvitationList([options], callback)]()
+ - Tagging Service
+   - [getCourseTags(courseid, callback)]()
+   - [setCourseTags(courseid, tags, callback)]()
+   - [addCourseTag(courseid, tag, callback)]()
+   - [removeCourseTag(courseid, tag, callback)]()
+   - [getLearnerTags(learnerid, callback)]()
+   - [setLearnerTags(learnerid, tags, callback)]()
+   - [addLearnerTag(learnerid, tag, callback)]()
+   - [removeLearnerTag(learnerid, tag, callback)]()
+   - [getRegistrationTags(regid, callback)]()
+   - [setRegistrationTags(regid, tags, callback)]()
+   - [addRegistrationTag(regid, tag, callback)]()
+   - [removeRegistrationTag(regid, tag, callback)]()
+ - Reporting Service
+   - [getAccountInfo(callback)]()
+
 ### Debug Service
 
 #### authPing(callback)
