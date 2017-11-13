@@ -41,46 +41,6 @@ api.getCourseList(function (error, result) {
 
 ## API
 
- - Debug Service
-   - [authPing(callback)](#authpingcallback)
- - Course Service
-   - [courseExists(courseid, callback)](#courseexistscourseid-callback)
-   - [deleteCourse(courseid, [options], callback)](#deletecoursecourseid-options-callback)
-   - [getCourseList([options], callback)](#getcourselistoptions-callback)
-   - [getCourseDetail(courseid, callback)](#getcoursedetailcourseid-callback)
- - Registration Service
-   - [createRegistration(courseid, regid, fname, lname, learnerid, [options], callback)]()
-   - [registrationExists(regid, callback)]()
-   - [deleteRegistration(regid, callback)]()
-   - [resetRegistration(regid, callback)]()
-   - [getRegistrationList([options], callback)]()
-   - [getRegistrationDetail(regid, callback)]()
-   - [getRegistrationResult(regid, [options], callback)]()
-   - [getRegistrationListResults([options], callback)]()
-   - [getLaunchHistory(regid, callback)]()
-   - [getLaunchInfo(launchid, callback)]()
- - Invitation Service
-   - [createInvitation(courseid, public, [options], callback)]()
-   - [getInvitationInfo(invitationid, [options], callback)]()
-   - [getInvitationList([options], callback)]()
- - Tagging Service
-   - [getCourseTags(courseid, callback)]()
-   - [setCourseTags(courseid, tags, callback)]()
-   - [addCourseTag(courseid, tag, callback)]()
-   - [removeCourseTag(courseid, tag, callback)]()
-   - [getLearnerTags(learnerid, callback)]()
-   - [setLearnerTags(learnerid, tags, callback)]()
-   - [addLearnerTag(learnerid, tag, callback)]()
-   - [removeLearnerTag(learnerid, tag, callback)]()
-   - [getRegistrationTags(regid, callback)]()
-   - [setRegistrationTags(regid, tags, callback)]()
-   - [addRegistrationTag(regid, tag, callback)]()
-   - [removeRegistrationTag(regid, tag, callback)]()
- - Reporting Service
-   - [getAccountInfo(callback)]()
-
----
-
 ### Debug Service
 
 #### authPing(callback)
@@ -93,8 +53,6 @@ api.authPing(function (error, result) {
   /* true */
 });
 ```
-
----
 
 ### Course Service
 
@@ -173,8 +131,6 @@ api.getCourseList('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, resul
   */
 });
 ```
-
----
 
 ### Registration Service
 
@@ -423,8 +379,6 @@ api.getLaunchInfo('66461586', function (error, result) {
 });
 ```
 
----
-
 ### Invitation Service
 
 #### createInvitation(courseid, public, [options], callback)
@@ -512,8 +466,6 @@ api.getInvitationList(function (error, result) {
 });
 ```
 
----
-
 ### Tagging Service
 
 #### getCourseTags(courseid, callback)
@@ -591,8 +543,6 @@ Add a tag to the specified registration.
 #### removeRegistrationTag(regid, tag, callback)
 
 Remove a tag from the specified registration.
-
----
 
 ### Reporting Service
 
