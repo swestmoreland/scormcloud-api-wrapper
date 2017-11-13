@@ -27,7 +27,6 @@ api.getCourseList(function (error, result) {
     {
       id: '810348d9-318e-48d5-b352-a1f6eb3a92cd',
       title: 'Example Course',
-      versions: -1,
       registrations: 1,
       size: 3023399,
       tags: ['example', 'course'],
