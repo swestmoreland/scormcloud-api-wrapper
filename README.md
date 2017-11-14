@@ -182,7 +182,8 @@ Parameters:
  * `fname` - The first name of the learner associated with this registration.
  * `lname` - The first name of the learner associated with this registration.
  * `learnerid` - The learner id associated with this registration.
- * `options` - Object with optional parameters; see below.
+ * `options` - Object with optional parameters; see options below.
+ * `callback`
 
 Options:
 
