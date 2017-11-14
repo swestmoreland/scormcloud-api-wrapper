@@ -84,6 +84,10 @@ api.deleteCourse('bd16aa80-f042-44b2-94a8-dd18a5484740', function (error, result
 });
 ```
 
+#### getCourseAttributes(courseid, callback)
+
+Get attributes for the specified course.
+
 #### getCourseList([options], callback)
 
 Retrieve a list of courses associated with the `appid`.
