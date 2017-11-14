@@ -443,7 +443,7 @@ api.getLaunchInfo('66461586', function (error, result) {
 
 #### resetGlobalObjectives(regid, callback)
 
-Calling this method will reset all global objectives associated with this registration.
+Reset all global objectives associated with this registration.
 
 ```js
 api.resetGlobalObjectives('0247b487-c3ab-4404-9103-70373ac11ef3', function (error, result) {
@@ -451,6 +451,10 @@ api.resetGlobalObjectives('0247b487-c3ab-4404-9103-70373ac11ef3', function (erro
   /* true */
 });
 ```
+
+#### updateLearnerInfo(learnerid, fname, lname, [options], callback)
+
+Update learner information that was given during previous `createRegistration` calls.
 
 ### Invitation Service
 
