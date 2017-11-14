@@ -75,6 +75,13 @@ Options:
 
  * `email` - If this parameter is included, user information will be attached to this event in the event history on the SCORM Cloud website.
 
+```js
+api.deleteCourse('bd16aa80-f042-44b2-94a8-dd18a5484740', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
+
 #### getCourseList([options], callback)
 
 Retrieve a list of courses associated with the `appid`.
@@ -99,6 +106,34 @@ api.getCourseList(function (error, result) {
       createDate: '2017-11-10T16:30:00.000+0000'
     },
     ...
+  ]
+  */
+});
+```
+
+```js
+api.getCourseList({ "tags": "golf" }, function (error, result) {
+  console.log(result);
+  /*
+  [
+    {
+      id: 'ContentPackagingSingleSCO_SCORM1234f80555-c4ae-45d3-8099-1910f91f1fc9',
+      title: 'Golf Explained - CP Single SCO',
+      registrations: 0,
+      size: 452996,
+      tags: [ 'golf' ],
+      learningStandard: 'scorm_12',
+      createDate: '2017-11-13T02:43:27.000+0000'
+    },
+    {
+      id: 'RuntimeBasicCalls_SCORM12e9bd020e-a513-49e1-bd46-15c6989c8173',
+      title: 'Golf Explained - Run-time Basic Calls',
+      registrations: 0,
+      size: 469563,
+      tags: [ 'golf' ],
+      learningStandard: 'scorm_12',
+      createDate: '2017-11-13T02:43:56.000+0000'
+    }
   ]
   */
 });
@@ -279,6 +314,11 @@ api.getRegistrationResult('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (erro
 #### getRegistrationListResults([options], callback)
 
 Combination of `getRegistrationList` and `getRegistrationResult` methods; can be used for basic reporting functionality.
+
+Options:
+
+ * `courseid` - Limit search to only registrations for the course specified by this courseid.
+ * `learnerid` - Limit search to only registrations for the learner specified by this learnerid.
 
 ```js
 api.getRegistrationListResults(function (error, result) {
@@ -484,7 +524,7 @@ api.getCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, resul
 Set a list of tags for the specified course.
 
 ```js
-api.setCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag1,tag2,tag3', function (error, result) {
+api.setCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'example,course', function (error, result) {
   console.log(result);
   /* true */
 });
@@ -516,33 +556,89 @@ api.removeCourseTag('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag', function (err
 
 Retrieve a list of tags for the specified learner.
 
+```js
+api.getLearnerTags('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', function (error, result) {
+  console.log(result);
+  /* ['developer', 'tester'] */
+});
+```
+
 #### setLearnerTags(learnerid, tags, callback)
 
 Set a list of tags for the specified learner.
+
+```js
+api.setLearnerTags('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'developer,tester', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
 
 #### addLearnerTag(learnerid, tag, callback)
 
 Add a tag to the specified learner.
 
+```js
+api.addLearnerTag('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'tag', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
+
 #### removeLearnerTag(learnerid, tag, callback)
 
 Remove a tag from the specified learner.
+
+```js
+api.removeLearnerTag('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'tag', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
 
 #### getRegistrationTags(regid, callback)
 
 Retrieve a list of tags for the specified registration.
 
+```js
+api.getRegistrationTags('988a83fa-fd1e-40bc-b93f-89346667448b', function (error, result) {
+  console.log(result);
+  /* ['example', 'registration'] */
+});
+```
+
 #### setRegistrationTags(regid, tags, callback)
 
 Set a list of tags for the specified registration.
+
+```js
+api.setRegistrationTags('988a83fa-fd1e-40bc-b93f-89346667448b', 'example,registration', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
 
 #### addRegistrationTag(regid, tag, callback)
 
 Add a tag to the specified registration.
 
+```js
+api.addRegistrationTag('988a83fa-fd1e-40bc-b93f-89346667448b', 'tag', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
+
 #### removeRegistrationTag(regid, tag, callback)
 
 Remove a tag from the specified registration.
+
+```js
+api.removeRegistrationTag('988a83fa-fd1e-40bc-b93f-89346667448b', 'tag', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
 
 ### Reporting Service
 
