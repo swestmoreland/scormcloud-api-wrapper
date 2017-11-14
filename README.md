@@ -175,6 +175,24 @@ api.getCourseList('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, resul
 
 Create a new registration.
 
+Parameters:
+
+ * `courseid` - The course for which this registration is being created.
+ * `regid` - The id used to identify this registration (must be unique).
+ * `fname` - The first name of the learner associated with this registration.
+ * `lname` - The first name of the learner associated with this registration.
+ * `learnerid` - The learner id associated with this registration.
+ * `options` - Object with optional parameters; see below.
+
+Options:
+
+ * `email` - If the email parameter is included, this registration will be attached to a SCORM Cloud website user (an “empty” user will be created if none with this email exists).
+ * `postbackurl` - Specifies a URL for which to post activity and status data in real time as the course is completed. See [Registration Postbacks](https://cloud.scorm.com/docs/advanced/postback.html).
+ * `authtype` - Optional parameter to specify how to authorize against the given postbackurl, can be “form” or “httpbasic”.
+ * `urlname` - You can optionally specify a login name to be used for credentials when posting to the URL specified in postbackurl.
+ * `urlpass` - If credentials for the postbackurl are provided, this must be included, it is the password to be used in authorizing the postback of data to the URL specified by postbackurl.
+ * `resultsformat` - This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: “course” (course summary), “activity” (activity summary, or “full” (full detail), and is set to “course” by default.
+
 ```js
 api.createRegistration(
   '810348d9-318e-48d5-b352-a1f6eb3a92cd',
