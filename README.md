@@ -255,7 +255,6 @@ Options:
  * `after` - Return registrations updated (strictly) after this timestamp.
  * `until` - Return registrations updated up to and including this timestamp.
 
-
 ```js
 api.getRegistrationList(function (error, result) {
   console.log(result);
@@ -340,6 +339,8 @@ Options:
 
  * `courseid` - Limit search to only registrations for the course specified by this courseid.
  * `learnerid` - Limit search to only registrations for the learner specified by this learnerid.
+ * `after` - Return registrations updated (strictly) after this timestamp.
+ * `until` - Return registrations updated up to and including this timestamp.
 
 ```js
 api.getRegistrationListResults(function (error, result) {
