@@ -456,6 +456,19 @@ api.resetGlobalObjectives('0247b487-c3ab-4404-9103-70373ac11ef3', function (erro
 
 Update learner information that was given during previous `createRegistration` calls.
 
+Parameters:
+
+ * `learnerid` -  The id of the learner whose information is being updated.
+ * `fname` - The first name of the learner.
+ * `lname` - The last name of the learner.
+ * `options` - Object with optional parameters; see options below.
+ * `callback`
+
+Options:
+
+ * `newid` - The new id to assign to this learner.
+ * `email` - The email of the learner.
+
 ### Invitation Service
 
 #### createInvitation(courseid, public, [options], callback)
