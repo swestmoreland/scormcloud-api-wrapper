@@ -13,7 +13,9 @@
     "scorm",
     "scormcloud",
     "tincan",
-    "api"
+    "api",
+    "lms",
+    "lrs"
   ],
   "main": "lib/scormcloud.js",
   "dependencies": {
