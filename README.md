@@ -2,6 +2,8 @@
 
 Node.js client for the [SCORM Cloud API](https://cloud.scorm.com/docs/index.html).
 
+[![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)]()
+
 ## Installation
 
 To install via npm:
