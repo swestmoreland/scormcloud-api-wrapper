@@ -1,7 +1,19 @@
 {
   "name": "scormcloud-api-wrapper",
   "version": "1.0.0",
+  "homepage": "https://github.com/swestmoreland/scormcloud-api-wrapper",
+    "author": "Steven Westmoreland",
   "description": "Node.js client for the SCORM Cloud API.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swestmoreland/scormcloud-api-wrapper.git"
+  },
+  "keywords": [
+    "scorm",
+    "scormcloud",
+    "tincan",
+    "api"
+  ],
   "main": "lib/scormcloud.js",
   "dependencies": {
     "lodash": "^4.17.4",
@@ -14,6 +26,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Steven Westmoreland",
   "license": "MIT"
 }
