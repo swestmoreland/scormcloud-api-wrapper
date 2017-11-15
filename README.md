@@ -2,6 +2,8 @@
 
 Node.js client for the [SCORM Cloud API](https://cloud.scorm.com/docs/index.html).
 
+[![npm](https://img.shields.io/npm/v/scormcloud-api-wrapper.svg?style=flat-square)](https://www.npmjs.com/package/scormcloud-api-wrapper)
+
 ## Installation
 
 To install via npm:
@@ -75,6 +77,17 @@ Options:
 
  * `email` - If this parameter is included, user information will be attached to this event in the event history on the SCORM Cloud website.
 
+```js
+api.deleteCourse('bd16aa80-f042-44b2-94a8-dd18a5484740', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
+
+#### getCourseAttributes(courseid, callback)
+
+Get attributes for the specified course.
+
 #### getCourseList([options], callback)
 
 Retrieve a list of courses associated with the `appid`.
@@ -99,6 +112,34 @@ api.getCourseList(function (error, result) {
       createDate: '2017-11-10T16:30:00.000+0000'
     },
     ...
+  ]
+  */
+});
+```
+
+```js
+api.getCourseList({ "tags": "golf" }, function (error, result) {
+  console.log(result);
+  /*
+  [
+    {
+      id: 'ContentPackagingSingleSCO_SCORM1234f80555-c4ae-45d3-8099-1910f91f1fc9',
+      title: 'Golf Explained - CP Single SCO',
+      registrations: 0,
+      size: 452996,
+      tags: [ 'golf' ],
+      learningStandard: 'scorm_12',
+      createDate: '2017-11-13T02:43:27.000+0000'
+    },
+    {
+      id: 'RuntimeBasicCalls_SCORM12e9bd020e-a513-49e1-bd46-15c6989c8173',
+      title: 'Golf Explained - Run-time Basic Calls',
+      registrations: 0,
+      size: 469563,
+      tags: [ 'golf' ],
+      learningStandard: 'scorm_12',
+      createDate: '2017-11-13T02:43:56.000+0000'
+    }
   ]
   */
 });
@@ -134,6 +175,25 @@ api.getCourseDetail('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, res
 #### createRegistration(courseid, regid, fname, lname, learnerid, [options], callback)
 
 Create a new registration.
+
+Parameters:
+
+ * `courseid` - The course for which this registration is being created.
+ * `regid` - The id used to identify this registration (must be unique).
+ * `fname` - The first name of the learner associated with this registration.
+ * `lname` - The first name of the learner associated with this registration.
+ * `learnerid` - The learner id associated with this registration.
+ * `options` - Object with optional parameters; see options below.
+ * `callback`
+
+Options:
+
+ * `email` - If the email parameter is included, this registration will be attached to a SCORM Cloud website user (an “empty” user will be created if none with this email exists).
+ * `postbackurl` - Specifies a URL for which to post activity and status data in real time as the course is completed. See [Registration Postbacks](https://cloud.scorm.com/docs/advanced/postback.html).
+ * `authtype` - Optional parameter to specify how to authorize against the given postbackurl, can be “form” or “httpbasic”.
+ * `urlname` - You can optionally specify a login name to be used for credentials when posting to the URL specified in postbackurl.
+ * `urlpass` - If credentials for the postbackurl are provided, this must be included, it is the password to be used in authorizing the postback of data to the URL specified by postbackurl.
+ * `resultsformat` - This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: “course” (course summary), “activity” (activity summary, or “full” (full detail), and is set to “course” by default.
 
 ```js
 api.createRegistration(
@@ -195,7 +255,6 @@ Options:
  * `learnerid` - Limit search to only registrations for the learner specified by this learnerid.
  * `after` - Return registrations updated (strictly) after this timestamp.
  * `until` - Return registrations updated up to and including this timestamp.
-
 
 ```js
 api.getRegistrationList(function (error, result) {
@@ -276,6 +335,13 @@ api.getRegistrationResult('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (erro
 #### getRegistrationListResults([options], callback)
 
 Combination of `getRegistrationList` and `getRegistrationResult` methods; can be used for basic reporting functionality.
+
+Options:
+
+ * `courseid` - Limit search to only registrations for the course specified by this courseid.
+ * `learnerid` - Limit search to only registrations for the learner specified by this learnerid.
+ * `after` - Return registrations updated (strictly) after this timestamp.
+ * `until` - Return registrations updated up to and including this timestamp.
 
 ```js
 api.getRegistrationListResults(function (error, result) {
@@ -376,11 +442,61 @@ api.getLaunchInfo('66461586', function (error, result) {
 });
 ```
 
+#### resetGlobalObjectives(regid, callback)
+
+Reset all global objectives associated with this registration.
+
+```js
+api.resetGlobalObjectives('0247b487-c3ab-4404-9103-70373ac11ef3', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
+
+#### updateLearnerInfo(learnerid, fname, lname, [options], callback)
+
+Update learner information that was given during previous `createRegistration` calls.
+
+Parameters:
+
+ * `learnerid` -  The id of the learner whose information is being updated.
+ * `fname` - The first name of the learner.
+ * `lname` - The last name of the learner.
+ * `options` - Object with optional parameters; see options below.
+ * `callback`
+
+Options:
+
+ * `newid` - The new id to assign to this learner.
+ * `email` - The email of the learner.
+
 ### Invitation Service
 
 #### createInvitation(courseid, public, [options], callback)
 
 Create a new invitation.
+
+Parameters:
+
+ * `courseid` - The id of the course for which the invitation will be created.
+ * `public` - A boolean specifying whether the invitation is public or private.
+ * `options` - Object with optional parameters; see options below.
+ * `callback`
+
+Options:
+
+ * `emailSubject` - The subject of the email that will be sent to any addresses provided (for private invitations).
+ * `emailBody` - The text that will be sent in the body of emails sent to any addresses provided (for private invitations).
+ * `addresses` - A comma separated list of email addresses for which registrations will be created for private invitations.
+ * `send` - A boolean (“true” or “false” only, default “false”) parameter specifying whether the private invitations will be emailed to the provided addresses or not.
+ * `creatingUserEmail` - The email of the user who is creating the invitation. This value is required in order to send private invitations.
+ * `registrationCap` - Integer value of limit of public invitation registrations to allow.
+ * `postbackurl` - Specifies a URL for which to post activity and status data in real time as the course is completed.
+ * `authtype` - Optional parameter to specify how to authorize against the given postbackurl, can be “form” or “httpbasic”.
+ * `urlname` - You can optionally specify a login name to be used for credentials when posting to the URL specified in postbackurl.
+ * `urlpass` - If credentials for the postbackurl are provided, this must be included, it is the password to be used in authorizing the postback of data to the URL specified by postbackurl.
+ * `resultsformat` - This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: “course” (course summary), “activity” (activity summary, or “full” (full detail), and is set to “course” by default.
+ * `expirationdate` - The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time).
 
 ```js
 api.createInvitation('810348d9-318e-48d5-b352-a1f6eb3a92cd', true, function (error, result) {
@@ -481,7 +597,7 @@ api.getCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, resul
 Set a list of tags for the specified course.
 
 ```js
-api.setCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag1,tag2,tag3', function (error, result) {
+api.setCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'example,course', function (error, result) {
   console.log(result);
   /* true */
 });
@@ -513,33 +629,89 @@ api.removeCourseTag('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag', function (err
 
 Retrieve a list of tags for the specified learner.
 
+```js
+api.getLearnerTags('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', function (error, result) {
+  console.log(result);
+  /* ['developer', 'tester'] */
+});
+```
+
 #### setLearnerTags(learnerid, tags, callback)
 
 Set a list of tags for the specified learner.
+
+```js
+api.setLearnerTags('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'developer,tester', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
 
 #### addLearnerTag(learnerid, tag, callback)
 
 Add a tag to the specified learner.
 
+```js
+api.addLearnerTag('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'tag', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
+
 #### removeLearnerTag(learnerid, tag, callback)
 
 Remove a tag from the specified learner.
+
+```js
+api.removeLearnerTag('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'tag', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
 
 #### getRegistrationTags(regid, callback)
 
 Retrieve a list of tags for the specified registration.
 
+```js
+api.getRegistrationTags('988a83fa-fd1e-40bc-b93f-89346667448b', function (error, result) {
+  console.log(result);
+  /* ['example', 'registration'] */
+});
+```
+
 #### setRegistrationTags(regid, tags, callback)
 
 Set a list of tags for the specified registration.
+
+```js
+api.setRegistrationTags('988a83fa-fd1e-40bc-b93f-89346667448b', 'example,registration', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
 
 #### addRegistrationTag(regid, tag, callback)
 
 Add a tag to the specified registration.
 
+```js
+api.addRegistrationTag('988a83fa-fd1e-40bc-b93f-89346667448b', 'tag', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
+
 #### removeRegistrationTag(regid, tag, callback)
 
 Remove a tag from the specified registration.
+
+```js
+api.removeRegistrationTag('988a83fa-fd1e-40bc-b93f-89346667448b', 'tag', function (error, result) {
+  console.log(result);
+  /* true */
+});
+```
 
 ### Reporting Service
 

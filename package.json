@@ -1,18 +1,21 @@
 {
   "name": "scormcloud-api-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "homepage": "https://github.com/swestmoreland/scormcloud-api-wrapper",
-    "author": "Steven Westmoreland",
+  "author": "Steven Westmoreland",
   "description": "Node.js client for the SCORM Cloud API.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/swestmoreland/scormcloud-api-wrapper.git"
   },
   "keywords": [
+    "elearning",
     "scorm",
     "scormcloud",
     "tincan",
-    "api"
+    "api",
+    "lms",
+    "lrs"
   ],
   "main": "lib/scormcloud.js",
   "dependencies": {
