@@ -199,11 +199,11 @@ Options:
 api.createRegistration(
   '810348d9-318e-48d5-b352-a1f6eb3a92cd',
   '09e6c1c5-1f20-4df0-b9a5-145364d0003b',
-  'Phil',
-  'Miller',
-  'phil.miller@example.com',
+  'John',
+  'Doe',
+  'john.doe@example.com',
   {
-    email: 'phil.miller@example.com'
+    email: 'john.doe@example.com'
   },
   function (error, result) {
     console.log(result);
