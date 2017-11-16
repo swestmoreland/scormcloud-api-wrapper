@@ -150,10 +150,9 @@ api.getCourseList({ "tags": "golf" }, function (error, result) {
 Retrieve details about the specified course. Includes version information; see [Course Versioning and Overwriting](https://cloud.scorm.com/docs/advanced/versioning.html).
 
 ```js
-api.getCourseList('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result) {
+api.getCourseDetail('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result) {
   console.log(result);
   /*
-  [
     {
       id: '810348d9-318e-48d5-b352-a1f6eb3a92cd',
       title: 'Example Course',
@@ -166,9 +165,7 @@ api.getCourseList('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, resul
       tags: ['example', 'course'],
       learningStandard: 'scorm_12',
       createDate: '2017-11-10T16:30:00.000+0000'
-    },
-    ...
-  ]
+    }
   */
 });
 ```
