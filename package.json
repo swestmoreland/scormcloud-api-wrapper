@@ -12,10 +12,11 @@
     "elearning",
     "scorm",
     "scormcloud",
-    "tincan",
     "api",
     "lms",
-    "lrs"
+    "lrs",
+    "tincan",
+    "xapi"
   ],
   "main": "lib/scormcloud.js",
   "dependencies": {
