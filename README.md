@@ -175,7 +175,7 @@ api.getCourseDetail('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, res
 Import a course. If the import is successful, the imported course will be registered using the courseid provided. If the courseid refers to an existing course, a new version of the course will be created; see [Course Versioning and Overwriting](https://cloud.scorm.com/docs/advanced/versioning.html).
 
 ```js
-api.importCourse('c2cbb917-c5b2-4b43-a9c3-5b7561e519b9','Archive.zip', function (error, result) {
+api.importCourse('c2cbb917-c5b2-4b43-a9c3-5b7561e519b9', 'Archive.zip', function (error, result) {
   console.log(result);
   /*
     {
