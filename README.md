@@ -170,6 +170,25 @@ api.getCourseDetail('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, res
 });
 ```
 
+#### importCourse(courseid, path, callback)
+
+Import a course. If the import is successful, the imported course will be registered using the courseid provided. If the courseid refers to an existing course, a new version of the course will be created; see [Course Versioning and Overwriting](https://cloud.scorm.com/docs/advanced/versioning.html).
+
+```js
+api.importCourse('c2cbb917-c5b2-4b43-a9c3-5b7561e519b9','Archive.zip', function (error, result) {
+  console.log(result);
+  /*
+    {
+      status: 'finished',
+      message: 'Finished',
+      importresult: [
+        { successful: 'true', title: 'Personal Protective Equipment Knowledge Assessment', message: 'Import Successful' }
+      ]
+    }
+  */
+});
+```
+
 ### Registration Service
 
 #### createRegistration(courseid, regid, fname, lname, learnerid, [options], callback)
