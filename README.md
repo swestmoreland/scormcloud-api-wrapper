@@ -58,6 +58,10 @@ api.authPing(function (error, result) {
 
 ### Course Service
 
+#### getCoursePreviewUrl(courseid, [versionid])
+
+Get the preview url for the specified course.
+
 #### courseExists(courseid, callback)
 
 Check whether or not the specified course exists.
