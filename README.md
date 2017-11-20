@@ -62,6 +62,11 @@ api.authPing(function (error, result) {
 
 Check whether or not the specified course exists.
 
+Parameters:
+
+ * `courseid` - The unique identifier for the course.
+ * `callback`
+
 ```js
 api.courseExists('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result) {
   console.log(result);
@@ -72,6 +77,12 @@ api.courseExists('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result
 #### deleteCourse(courseid, [options], callback)
 
 Delete the specified course.
+
+Parameters:
+
+ * `courseid` - The unique identifier for the course.
+ * `options` - Object with optional parameters; see options below.
+ * `callback`
 
 Options:
 
@@ -91,6 +102,11 @@ Get attributes for the specified course.
 #### getCourseList([options], callback)
 
 Retrieve a list of courses associated with the `appid`.
+
+Parameters:
+
+ * `options` - Object with optional parameters; see options below.
+ * `callback`
 
 Options:
 
@@ -149,6 +165,11 @@ api.getCourseList({ "tags": "golf" }, function (error, result) {
 
 Retrieve details about the specified course. Includes version information; see [Course Versioning and Overwriting](https://cloud.scorm.com/docs/advanced/versioning.html).
 
+Parameters:
+
+ * `courseid` - The unique identifier for the course.
+ * `callback`
+
 ```js
 api.getCourseDetail('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result) {
   console.log(result);
@@ -173,6 +194,12 @@ api.getCourseDetail('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, res
 #### importCourse(courseid, path, callback)
 
 Import a course. If the import is successful, the imported course will be registered using the courseid provided. If the courseid refers to an existing course, a new version of the course will be created; see [Course Versioning and Overwriting](https://cloud.scorm.com/docs/advanced/versioning.html).
+
+Parameters:
+
+ * `courseid` - The unique identifier for the course.
+ * `path` - The path for the course to be imported.
+ * `callback`
 
 ```js
 api.importCourse('c2cbb917-c5b2-4b43-a9c3-5b7561e519b9', 'Archive.zip', function (error, result) {
@@ -235,6 +262,11 @@ api.createRegistration(
 
 Check whether or not the specified registration exists.
 
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `callback`
+
 ```js
 api.registrationExists('09e6c1c5-1f20-4df0-b9a5-145364d0003b', function (error, result) {
   console.log(result);
@@ -245,6 +277,11 @@ api.registrationExists('09e6c1c5-1f20-4df0-b9a5-145364d0003b', function (error, 
 #### deleteRegistration(regid, callback)
 
 Delete the specified registration.
+
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `callback`
 
 ```js
 api.deleteRegistration('09e6c1c5-1f20-4df0-b9a5-145364d0003b', function (error, result) {
@@ -257,6 +294,11 @@ api.deleteRegistration('09e6c1c5-1f20-4df0-b9a5-145364d0003b', function (error, 
 
 Reset the specified registration.
 
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `callback`
+
 ```js
 api.deleteRegistration('09e6c1c5-1f20-4df0-b9a5-145364d0003b', function (error, result) {
   console.log(result);
@@ -267,6 +309,11 @@ api.deleteRegistration('09e6c1c5-1f20-4df0-b9a5-145364d0003b', function (error, 
 #### getRegistrationList([options], callback)
 
 Retrieve a list of registrations associated with the `appid`.
+
+Parameters:
+
+ * `options` - Object with optional parameters; see options below.
+ * `callback`
 
 Options:
 
@@ -304,6 +351,11 @@ api.getRegistrationList(function (error, result) {
 
 Retrieve details about the specified registration.
 
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `callback`
+
 ```js
 api.getRegistrationDetail('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (error, result) {
   console.log(result);
@@ -334,6 +386,11 @@ api.getRegistrationDetail('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (erro
 
 Retrieve details about the results of the specified registration.
 
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `callback`
+
 ```js
 api.getRegistrationResult('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (error, result) {
   console.log(result);
@@ -354,6 +411,11 @@ api.getRegistrationResult('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (erro
 #### getRegistrationListResults([options], callback)
 
 Combination of `getRegistrationList` and `getRegistrationResult` methods; can be used for basic reporting functionality.
+
+Parameters:
+
+ * `options` - Object with optional parameters; see options below.
+ * `callback`
 
 Options:
 
@@ -400,6 +462,11 @@ api.getRegistrationListResults(function (error, result) {
 
 Retrieve historical list of launches for the specified registration.
 
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `callback`
+
 ```js
 api.getLaunchHistory('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (error, result) {
   console.log(result);
@@ -425,6 +492,11 @@ api.getLaunchHistory('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (error, re
 #### getLaunchInfo(launchid, callback)
 
 Retrieve historical data for the specified launch.
+
+Parameters:
+
+ * `launchid` - The unique identifier for the launch.
+ * `callback`
 
 ```js
 api.getLaunchInfo('66461586', function (error, result) {
@@ -464,6 +536,11 @@ api.getLaunchInfo('66461586', function (error, result) {
 #### resetGlobalObjectives(regid, callback)
 
 Reset all global objectives associated with this registration.
+
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `callback`
 
 ```js
 api.resetGlobalObjectives('0247b487-c3ab-4404-9103-70373ac11ef3', function (error, result) {
@@ -528,6 +605,11 @@ api.createInvitation('810348d9-318e-48d5-b352-a1f6eb3a92cd', true, function (err
 
 Retrieve details about the specified invitation.
 
+Parameters:
+
+ * `invitationid` - The unique identifier for the invitation.
+ * `callback`
+
 ```js
 api.getInvitationInfo('b4a6b1f2-1e00-41cc-a7bd-dce896ed3e08', function (error, result) {
   console.log(result);
@@ -570,6 +652,11 @@ api.getInvitationInfo('b4a6b1f2-1e00-41cc-a7bd-dce896ed3e08', function (error, r
 
 Retrieve a list of invitations that meet the filter criteria.
 
+Parameters:
+
+ * `options` - Object with optional parameters; see options below.
+ * `callback`
+
 Options:
 
  * `filter` - A regular expression that will be used to filter the list of invitations. Specifically only those invitations whose invitation Id’s match the given expression will be returned in the list.
@@ -604,6 +691,11 @@ api.getInvitationList(function (error, result) {
 
 Retrieve a list of tags for the specified course.
 
+Parameters:
+
+ * `courseid` - The unique identifier for the course.
+ * `callback`
+
 ```js
 api.getCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result) {
   console.log(result);
@@ -614,6 +706,12 @@ api.getCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, resul
 #### setCourseTags(courseid, tags, callback)
 
 Set a list of tags for the specified course.
+
+Parameters:
+
+ * `courseid` - The unique identifier for the course.
+ * `tags` - Comma separated list of tags to set for the course.
+ * `callback`
 
 ```js
 api.setCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'example,course', function (error, result) {
@@ -626,6 +724,12 @@ api.setCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'example,course', func
 
 Add a tag to the specified course.
 
+Parameters:
+
+ * `courseid` - The unique identifier for the course.
+ * `tag` - The tag to associate with the course.
+ * `callback`
+
 ```js
 api.addCourseTag('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag', function (error, result) {
   console.log(result);
@@ -636,6 +740,12 @@ api.addCourseTag('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag', function (error,
 #### removeCourseTag(courseid, tag, callback)
 
 Remove a tag from the specified course.
+
+Parameters:
+
+ * `courseid` - The unique identifier for the course.
+ * `tag` - The tag to remove from the course.
+ * `callback`
 
 ```js
 api.removeCourseTag('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag', function (error, result) {
@@ -648,6 +758,11 @@ api.removeCourseTag('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag', function (err
 
 Retrieve a list of tags for the specified learner.
 
+Parameters:
+
+ * `learnerid` - The unique identifier for the learner.
+ * `callback`
+
 ```js
 api.getLearnerTags('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', function (error, result) {
   console.log(result);
@@ -658,6 +773,12 @@ api.getLearnerTags('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', function (error, resu
 #### setLearnerTags(learnerid, tags, callback)
 
 Set a list of tags for the specified learner.
+
+Parameters:
+
+ * `learnerid` - The unique identifier for the learner.
+ * `tags` - Comma separated list of tags to set for the learner.
+ * `callback`
 
 ```js
 api.setLearnerTags('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'developer,tester', function (error, result) {
@@ -670,6 +791,12 @@ api.setLearnerTags('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'developer,tester', f
 
 Add a tag to the specified learner.
 
+Parameters:
+
+ * `learnerid` - The unique identifier for the learner.
+ * `tag` - The tag to associate with the learner.
+ * `callback`
+
 ```js
 api.addLearnerTag('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'tag', function (error, result) {
   console.log(result);
@@ -680,6 +807,12 @@ api.addLearnerTag('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'tag', function (error
 #### removeLearnerTag(learnerid, tag, callback)
 
 Remove a tag from the specified learner.
+
+Parameters:
+
+ * `learnerid` - The unique identifier for the learner.
+ * `tag` - The tag to remove from the learner.
+ * `callback`
 
 ```js
 api.removeLearnerTag('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'tag', function (error, result) {
@@ -692,6 +825,11 @@ api.removeLearnerTag('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'tag', function (er
 
 Retrieve a list of tags for the specified registration.
 
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `callback`
+
 ```js
 api.getRegistrationTags('988a83fa-fd1e-40bc-b93f-89346667448b', function (error, result) {
   console.log(result);
@@ -702,6 +840,12 @@ api.getRegistrationTags('988a83fa-fd1e-40bc-b93f-89346667448b', function (error,
 #### setRegistrationTags(regid, tags, callback)
 
 Set a list of tags for the specified registration.
+
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `tags` - Comma separated list of tags to set for the registration.
+ * `callback`
 
 ```js
 api.setRegistrationTags('988a83fa-fd1e-40bc-b93f-89346667448b', 'example,registration', function (error, result) {
@@ -714,6 +858,12 @@ api.setRegistrationTags('988a83fa-fd1e-40bc-b93f-89346667448b', 'example,registr
 
 Add a tag to the specified registration.
 
+Parameters:
+
+ * `regid` - The unique identifier for the registation.
+ * `tag` - The tag to associate with the registration.
+ * `callback`
+
 ```js
 api.addRegistrationTag('988a83fa-fd1e-40bc-b93f-89346667448b', 'tag', function (error, result) {
   console.log(result);
@@ -724,6 +874,12 @@ api.addRegistrationTag('988a83fa-fd1e-40bc-b93f-89346667448b', 'tag', function (
 #### removeRegistrationTag(regid, tag, callback)
 
 Remove a tag from the specified registration.
+
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `tag` - The tag to remove from the registration.
+ * `callback`
 
 ```js
 api.removeRegistrationTag('988a83fa-fd1e-40bc-b93f-89346667448b', 'tag', function (error, result) {
