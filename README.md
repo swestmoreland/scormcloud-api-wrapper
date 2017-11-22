@@ -62,6 +62,15 @@ api.authPing(function (error, result) {
 
 Get the preview url for the specified course.
 
+Parameters:
+
+ * `courseid` - The unique identifier for the course.
+ * `versionid` - The version of the package which will be used. If omitted, use the most recent version.
+
+```js
+let previewUrl = api.getCoursePreviewUrl('810348d9-318e-48d5-b352-a1f6eb3a92cd');
+```
+
 #### courseExists(courseid, callback)
 
 Check whether or not the specified course exists.
