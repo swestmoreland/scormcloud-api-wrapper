@@ -591,7 +591,16 @@ Parameters:
  * `redirecturl` - The redirect url for when the registration has been completed. The following keywords are available:
    * “closer” - Redirect to a page that automatically tries to close the browser window.
    * “blank” - Redirect to a blank page.
-   * “message” – Redirect to a page with a simple message about the course being complete.
+   * “message” - Redirect to a page with a simple message about the course being complete.
+ * `options` - Object with optional parameters; see options below.
+
+Options:
+
+ * `cssurl` - An absolute URL to a custom stylesheet that will be used to style the navigational menus and header of the SCORM “player” that displays the course content.
+ * `learnerTags` - Comma-delimited list of tags to associate with the learner who is launching the course.
+ * `courseTags` - Comma-delimited list of tags to associate with the launched course.
+ * `registrationTags` - Comma-delimited list of tags to associate the the launched registration.
+ * `disableTracking` - If set to “true”, the registration will be launched with tracking disabled, and the launch will not result in any changes to the registration.
 
 ```js
 let launchUrl = api.getLaunchUrl('2819b19c-bbe6-4d27-b3c0-70c80a56dc66', 'blank');
