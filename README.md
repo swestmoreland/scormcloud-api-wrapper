@@ -101,11 +101,11 @@ api.deleteCourse('bd16aa80-f042-44b2-94a8-dd18a5484740', function (error, result
 
 #### getCourseAttributes(courseid, callback)
 
-Get attributes for the specified course.
+Get attributes for the specified course. See [SCORM Cloud Course Attributes](lib/attributes.md).
 
 #### setCourseAttributes(courseid, attributes, callback)
 
-Set attributes for the specified course.
+Set attributes for the specified course. See [SCORM Cloud Course Attributes](lib/attributes.md).
 
 #### getCourseList([options], callback)
 
