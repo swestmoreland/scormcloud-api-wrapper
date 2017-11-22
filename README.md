@@ -103,6 +103,94 @@ api.deleteCourse('bd16aa80-f042-44b2-94a8-dd18a5484740', function (error, result
 
 Get attributes for the specified course. See [SCORM Cloud Course Attributes](lib/attributes.md).
 
+Parameters:
+
+ * `courseid` - The unique identifier for the course.
+ * `callback`
+
+```js
+api.getCourseAttributes('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result) {
+  console.log(result);
+  /*
+  {
+    allowCompleteStatusChange: false,
+    alwaysFlowToFirstSco: true,
+    applyRollupStatusToSuccess: false,
+    commCommitFrequency: 10000,
+    commMaxFailedSubmissions: 2,
+    completionStatOfFailedSuccessStat: 'unknown',
+    courseStructureStartsOpen: false,
+    courseStructureWidth: 0,
+    debugControl: 'off',
+    debugIncludeTimestamps: true,
+    debugLookAhead: 'audit',
+    debugRuntime: 'detailed',
+    debugSequencing: 'detailed',
+    desiredFullScreen: false,
+    desiredHeight: 600,
+    desiredWidth: 960,
+    enableChoiceNavigation: false,
+    enablePrevNext: false,
+    finishCausesImmediateCommit: true,
+    firstScoIsPretest: false,
+    ieCompatibilityMode: 'none',
+    invalidMenuItemAction: 3,
+    launchCompletedRegsAsNoCredit: true,
+    logoutCausesPlayerExit: true,
+    logoutFinalNotSatAction: 1,
+    logoutFinalSatAction: 1,
+    logoutIntNotSatAction: 2,
+    logoutIntSatAction: 2,
+    lookaheadSequencerMode: 3,
+    normalFinalNotSatAction: 1,
+    normalFinalSatAction: 1,
+    normalIntNotSatAction: 4,
+    normalIntSatAction: 3,
+    numberOfScoringObjects: 0,
+    playerLaunchType: 1,
+    preventRightClick: false,
+    preventWindowResize: false,
+    registrationInstancingOption: 'never',
+    requiredFullScreen: false,
+    requiredHeight: 0,
+    requiredWidth: 0,
+    resetRunTimeDataTiming: 1,
+    returnToLmsAction: 'legacy',
+    rollupEmptySetToUnknown: false,
+    rsopSynchMode: 2,
+    scaleRawScore: false,
+    scoLaunchType: 2,
+    scoreOverridesStatus: false,
+    scoreRollupMode: 3,
+    scormVersion: 'scorm_12',
+    showCloseItem: false,
+    showCourseStructure: false,
+    showFinishButton: false,
+    showHelp: false,
+    showNavBar: false,
+    showProgressBar: false,
+    showTitleBar: false,
+    statusDisplay: 4,
+    statusRollupMode: 3,
+    suspendDataMaxLength: 4096,
+    suspendFinalNotSatAction: 1,
+    suspendFinalSatAction: 1,
+    suspendIntNotSatAction: 4,
+    suspendIntSatAction: 4,
+    thresholdScore: 0,
+    timeLimit: 0,
+    timeoutFinalNotSatAction: 1,
+    timeoutFinalSatAction: 1,
+    timeoutIntNotSatAction: 4,
+    timeoutIntSatAction: 4,
+    title: 'Example Course',
+    validateInteractionResponses: true,
+    wrapScoWindowWithApi: false
+  }
+  */
+});
+```
+
 #### setCourseAttributes(courseid, attributes, callback)
 
 Set attributes for the specified course. See [SCORM Cloud Course Attributes](lib/attributes.md).
