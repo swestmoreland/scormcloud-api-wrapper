@@ -195,6 +195,24 @@ api.getCourseAttributes('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error,
 
 Set attributes for the specified course. See [SCORM Cloud Course Attributes](lib/attributes.md).
 
+Parameters:
+
+ * `courseid` - The unique identifier for the course.
+ * `attributes`
+ * `callback`
+
+```js
+api.setCourseAttributes('810348d9-318e-48d5-b352-a1f6eb3a92cd', { "desiredWidth": 1024, "desiredHeight": 768 }, function (error, result) {
+  console.log(result);
+  /*
+  {
+    desiredHeight: 768,
+    desiredWidth: 1024
+  }
+  */
+});
+```
+
 #### getCourseList([options], callback)
 
 Retrieve a list of courses associated with the `appid`.
