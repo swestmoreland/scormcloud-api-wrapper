@@ -589,9 +589,9 @@ Parameters:
 
  * `regid` - The unique identifier for the registration.
  * `redirecturl` - The redirect url for when the registration has been completed. The following keywords are available:
-  * “closer” - Redirect to a page that automatically tries to close the browser window.
-  * “blank” - Redirect to a blank page.
-  * “message” – Redirect to a page with a simple message about the course being complete.
+   * “closer” - Redirect to a page that automatically tries to close the browser window.
+   * “blank” - Redirect to a blank page.
+   * “message” – Redirect to a page with a simple message about the course being complete.
 
 ```js
 let launchUrl = api.getLaunchUrl('2819b19c-bbe6-4d27-b3c0-70c80a56dc66', 'blank');
