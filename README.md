@@ -742,6 +742,15 @@ Options:
  * `resultsformat` - This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: “course” (course summary), “activity” (activity summary, or “full” (full detail), and is set to “course” by default.
  * `expirationdate` - The date this invitation will expire and can not be launched (formatted yyyyMMddHHmmss in UTC time).
 
+The following tags can be added to the `emailSubject` or `emailBody` options:
+
+ * [COURSE] - Course name
+ * [COURSE_DESCRIPTION] - Course description
+ * [COURSE_DURATION] - Course duration
+ * [USER] - Recipient's name
+ * [URL] - Course launch url
+ * [URL:name] - Link to the launch URL with text 'name'
+
 ```js
 api.createInvitation('810348d9-318e-48d5-b352-a1f6eb3a92cd', true, function (error, result) {
   console.log(result);
