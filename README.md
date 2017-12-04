@@ -714,6 +714,59 @@ Options:
  * `newid` - The new id to assign to this learner.
  * `email` - The email of the learner.
 
+#### getPostbackInfo(regid, callback)
+
+This method provides a way to retrieve the postback attributes that were set with `createRegistration` or `updatePostbackInfo` calls. See [Registration Postbacks](https://cloud.scorm.com/docs/advanced/postback.html).
+
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `callback`
+
+#### updatePostbackInfo(regid, postbackUrl, options, callback)
+
+This method provides a way to update the postback settings for a registration created with the `createRegistration` call. If you wish to change an authenticated postback to an unauthenticated postback, call this method with only a url specified.
+
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `postbackUrl` - URL for registation results to be posted to.
+ * `options` - Object with optional parameters; see options below.
+ * `callback`
+
+Options:
+
+ * `authtype` - Optional parameter to specify how to authorize against the given postbackurl, can be “form” or “httpbasic”.
+ * `urlname` - You can optionally specify a login name to be used for credentials when posting to the URL specified in postbackurl.
+ * `urlpass` - If credentials for the postbackurl are provided, this must be included, it is the password to be used in authorizing the postback of data to the URL specified by postbackurl.
+ * `resultsformat` - This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: “course” (course summary), “activity” (activity summary, or “full” (full detail), and is set to “course” by default.
+
+#### deletePostbackInfo(regid, callback)
+
+Clear postback settings so that registration results no longer invoke a postback url.
+
+Parameters:
+
+ * `regid` - The unique identifier for the registration.
+ * `callback`
+
+#### testRegistrationPostbackUrl(postbackUrl, options, callback)
+
+This method provides a way to test a URL for posting registration results back to, as they would be posted when using the postbackurl in the createRegistration call. When called, an example registration result will be posted to the URL given, or else an error will be reported regarding why the post failed.
+
+Parameters:
+
+ * `postbackUrl` - URL for registation results to be posted to.
+ * `options` - Object with optional parameters; see options below.
+ * `callback`
+
+Options:
+
+ * `authtype` - Optional parameter to specify how to authorize against the given postbackurl, can be “form” or “httpbasic”.
+ * `urlname` - You can optionally specify a login name to be used for credentials when posting to the URL specified in postbackurl.
+ * `urlpass` - If credentials for the postbackurl are provided, this must be included, it is the password to be used in authorizing the postback of data to the URL specified by postbackurl.
+ * `resultsformat` - This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: “course” (course summary), “activity” (activity summary, or “full” (full detail), and is set to “course” by default.
+
 ### Invitation Service
 
 #### createInvitation(courseid, public, [options], callback)
