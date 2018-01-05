@@ -41,6 +41,8 @@ api.getCourseList(function (error, result) {
 });
 ```
 
+For more information, see [Getting started with the Node.js client for the SCORM Cloud API](https://stevenwestmoreland.com/2017/11/nodejs-client-for-scormcloud-api.html).
+
 ## API
 
 ### Debug Service
