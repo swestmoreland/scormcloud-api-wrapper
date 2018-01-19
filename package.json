@@ -1,6 +1,6 @@
 {
   "name": "scormcloud-api-wrapper",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "homepage": "https://github.com/swestmoreland/scormcloud-api-wrapper",
   "author": "Steven Westmoreland",
   "description": "Node.js client for the SCORM Cloud API.",
