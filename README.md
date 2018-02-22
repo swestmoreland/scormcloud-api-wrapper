@@ -425,7 +425,7 @@ Parameters:
  * `callback`
 
 ```js
-api.deleteRegistration('09e6c1c5-1f20-4df0-b9a5-145364d0003b', function (error, result) {
+api.resetRegistration('09e6c1c5-1f20-4df0-b9a5-145364d0003b', function (error, result) {
   console.log(result);
   /* true */
 });
