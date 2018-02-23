@@ -897,6 +897,80 @@ api.getInvitationList(function (error, result) {
 });
 ```
 
+### Application Service
+
+This service requires authentication with your management app id and secret. You can access this information from the [Apps / API](https://cloud.scorm.com/sc/user/Apps) page in SCORM Cloud.
+
+```js
+// Include your management app id and secret when creating an API client instance.
+var api = new SCORMCloud('appid', 'secretKey', 'managementid', 'managementKey');
+```
+
+```js
+// or set your management app id and secret after creating an API client instance.
+var api = new SCORMCloud('appid', 'secretKey');
+api.managementid  = 'HP1BW3KC2G';
+api.managementKey = 'Management App Secret Key';
+```
+
+#### getAppList(callback)
+
+Retrieve a list of applications associated with your realm.
+
+```js
+api.getAppList(function (error, result) {
+  console.log(result);
+  /*
+  [
+    {
+      appId: 'FNPQCR5SRN',
+      name: 'Initial Application for Steven\'s Realm',
+      createDate: '2012-06-27T03:38:55.000+0000'
+    },
+    { 
+      appId: 'HP1BW3KC2G',
+      name: 'App Management App',
+      createDate: '2017-11-09T18:12:35.000+0000'
+    },
+    ...
+  ]
+  */
+});
+```
+
+#### getAppInfo(appid, callback)
+
+Retrieve details about the specified application.
+
+Parameters:
+
+ * `appid` - The unique identifier for the application.
+
+```js
+api.getAppInfo('', function (error, result) {
+  console.log(result);
+  /*
+  {
+    appId: 'FNPQCR5SRN',
+    name: 'Initial Application for Steven\'s Realm',
+    allowDeleteAPI: true,
+    allowUpdateAPI: true,
+    createDate: '2012-06-27T03:38:55.000+0000',
+    secretKeys: [
+      { 
+        id: '03772612-d3ed-433e-81dc-a63b2af5cd41',
+        key: '',
+        pensKey: '',
+        description: 'First Secret Key',
+        active: true,
+        createDate: '2012-06-27T03:38:55.000+0000'
+      }
+    ] 
+  }
+  */
+});
+```
+
 ### Tagging Service
 
 #### getCourseTags(courseid, callback)
