@@ -947,7 +947,7 @@ Parameters:
  * `appid` - The unique identifier for the application.
 
 ```js
-api.getAppInfo('', function (error, result) {
+api.getAppInfo('FNPQCR5SRN', function (error, result) {
   console.log(result);
   /*
   {
