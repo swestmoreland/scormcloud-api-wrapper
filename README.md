@@ -973,13 +973,65 @@ api.getAppInfo('FNPQCR5SRN', function (error, result) {
 
 #### createApplication(name, callback)
 
+Create a new application.
+
+Parameters:
+
+ * `name` - Name or description for the new application.
+
+```js
+api.createApplication('New Applicaton', function (error, result) {
+  console.log(result);
+  /*
+
+  */
+}
+```
+
 #### updateApplication(appid, [options], callback)
+
+Update the name and/or registration deletion permissions for an application.
+
+Parameters:
+
+ * `appid` - The unique identifier for the application.
+
+Options:
+
+ * `name` - Name or description for the application.
+ * `allowdelete` - Sets whether `deleteRegistration` can be used with this app.
 
 #### addSecretKey(appid, description, callback)
 
+Create a new secret key for an application.
+
+Parameters:
+
+ * `appid` - The unique identifier for the application.
+ * `description` - Name or description for the new key.
+
 #### updateSecretKey(appid, keyid, [options], callback)
 
+Updates a secret key associated with the given keyid.
+
+Parameters:
+
+ * `appid` - The unique identifier for the application.
+ * `keyid` - The unique identifier for the key. Key identifiers can be retrieved by calling `getAppInfo`.
+
+Options:
+
+ * `description` - Name or description for the key.
+ * `active` - Enables or disables the secret key for use.
+
 #### deleteSecretKey(appid, keyid, callback)
+
+Deletes a secret key associated with the given keyid.
+
+Parameters:
+
+ * `appid` - The unique identifier for the application.
+ * `keyid` - The unique identifier for the key. Key identifiers can be retrieved by calling `getAppInfo`.
 
 ### Tagging Service
 
