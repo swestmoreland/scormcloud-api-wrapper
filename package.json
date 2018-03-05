@@ -20,9 +20,9 @@
   ],
   "main": "lib/scormcloud.js",
   "dependencies": {
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.5",
     "md5": "^2.2.1",
-    "moment": "^2.19.1",
+    "moment": "^2.21.0",
     "request": "^2.83.0",
     "xml2js": "^0.4.19"
   },
