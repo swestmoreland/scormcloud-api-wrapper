@@ -971,6 +971,16 @@ api.getAppInfo('FNPQCR5SRN', function (error, result) {
 });
 ```
 
+#### createApplication(name, callback)
+
+#### updateApplication(appid, [options], callback)
+
+#### addSecretKey(appid, description, callback)
+
+#### updateSecretKey(appid, keyid, [options], callback)
+
+#### deleteSecretKey(appid, keyid, callback)
+
 ### Tagging Service
 
 #### getCourseTags(courseid, callback)
