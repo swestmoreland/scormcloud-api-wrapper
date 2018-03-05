@@ -51,6 +51,10 @@ For more information, see [Getting started with the Node.js client for the SCORM
 
 Verifies that your credentials are valid and that the web service is reachable.
 
+Parameters:
+
+ * `callback`
+
 ```js
 api.authPing(function (error, result) {
   console.log(result);
@@ -209,7 +213,7 @@ Set attributes for the specified course. See [SCORM Cloud Course Attributes](lib
 Parameters:
 
  * `courseid` - The unique identifier for the course.
- * `attributes`
+ * `attributes` - Object with course attributes.
  * `callback`
 
 ```js
