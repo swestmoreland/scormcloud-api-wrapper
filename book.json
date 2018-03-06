@@ -1,4 +1,7 @@
 {
-    "plugins": ["-sharing"],
-    "root": "./docs"
+    "plugins": ["-fontsettings", "-sharing"],
+    "root": "./docs",
+    "styles": {
+        "website": "website.css"
+    }
 }
