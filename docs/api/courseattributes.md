@@ -1,4 +1,4 @@
-# SCORM Cloud Course Attributes
+# Course Attributes
 
 | Property | Description | Values |
 | :------- | :---------- | :----- |
@@ -73,7 +73,7 @@
 | validateInteractionResponses | Determines whether the format of SCORM responses are validated client-side | true, false |
 | wrapScoWindowWithApi | Will put an API relay object in a frameset around a SCO that is launched in a new window. This is useful for SCOs that incorrectly use the ADL API Finder algorithm from spawned windows. | true, false |
 
-### Exit Action Values
+#### Exit Action Values
 
 | Name | Value | Summary |
 | :--- | :---- | :------ |
@@ -84,7 +84,7 @@
 | `DISPLAY_MESSAGE` | 4 | Display a status message to the learner |
 | `DO_NOTHING` | 5 | Do not take any action |
 
-### Invalid Menu Item Actions
+#### Invalid Menu Item Actions
 
 | Name | Value | Summary |
 | :--- | :---- | :------ |
@@ -93,7 +93,7 @@
 | `HIDE` | 2 | Hide the menu item completely |
 | `DISABLE` | 3 | Show the menu item, but disable its link |
 
-### Launch Type Values
+#### Launch Type Values
 
 | Name | Value | Summary |
 | :--- | :---- | :------ |
@@ -104,7 +104,7 @@
 | `NEW_WINDOW_WITHOUT_BROWSER_TOOLBAR` | 4 | Display the player or SCO in a popup window (without toolbar). |
 | `NEW_WINDOW_AFTER_CLICK_WITHOUT_BROWSER_TOOLBAR` | 5 | Display the player or SCO in a popup window (without toolbar) after prompting the user to click a link to avoid popup blocker restrictions. |
 
-### Lookahead Sequencer Modes
+#### Lookahead Sequencer Modes
 
 | Name | Value | Summary |
 | :--- | :---- | :------ |
@@ -113,7 +113,7 @@
 | `ENABLED` | 2 | Fully Enabled |
 | `REALTIME` | 3 | Enabled, with real-time status updates |
 
-### Reset Runtime Values
+#### Reset Runtime Values
 
 | Name | Value | Summary |
 | :--- | :---- | :------ |
@@ -122,7 +122,7 @@
 | `WHEN_EXIT_IS_NOT_SUSPEND` | 2 | Use the RunTime data's exit flag to determine when to reset the data |
 | `ON_EACH_NEW_SEQUENCING_ATTEMPT` | 3 | Reset the data whenever a new sequencing attempt begins |
 
-### Score Rollup Mode Values
+#### Score Rollup Mode Values
 
 | Name | Value | Summary |
 | :--- | :---- | :------ |
@@ -134,7 +134,7 @@
 | `AVERAGE_SCORE_OF_ALL_UNITS_WITH_NONZERO_SCORES` | 5 | Adds up all reported scores and divides by the number of SCOs that reported a score greater than zero. |
 | `LAST_SCO_SCORE` | 6 | Use the score of the last SCO. |
 
-### Status Display Values
+#### Status Display Values
 
 | Name | Value | Summary |
 | :--- | :---- | :------ |
@@ -145,7 +145,7 @@
 | `COMBINED` | 4 | Display a single icon that represents both the success and completion status of an activity. |
 | `NONE` | 5 | Do not display any status representation icons. |
 
-### Status Rollup Mode Values
+#### Status Rollup Mode Values
 
 | Name | Value | Summary |
 | :--- | :---- | :------ |

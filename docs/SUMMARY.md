@@ -27,7 +27,7 @@
     * [getRegistrationResult](api/registration.md#getRegistrationResult)
     * [getRegistrationListResults](api/registration.md#getRegistrationListResults)
     * [getLaunchUrl](api/registration.md#getLaunchUrl)
-    * [getLaunchUrl](api/registration.md#getLaunchHistory)
+    * [getLaunchHistory](api/registration.md#getLaunchHistory)
     * [getLaunchInfo](api/registration.md#getLaunchInfo)
     * [resetGlobalObjectives](api/registration.md#resetGlobalObjectives)
     * [updateLearnerInfo](api/registration.md#updateLearnerInfo)
@@ -63,3 +63,8 @@
     * [removeRegistrationTag](api/tagging.md#removeRegistrationTag)
 * [Reporting Service](api/reporting.md)
     * [getAccountInfo](api/reporting.md#getAccountInfo)
+
+### Appendix
+
+* [Course Attributes](api/courseattributes.md
+)

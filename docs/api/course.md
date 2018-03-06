@@ -52,7 +52,7 @@ api.deleteCourse('bd16aa80-f042-44b2-94a8-dd18a5484740', function (error, result
 
 #### .getCourseAttributes(courseid, callback) {#getCourseAttributes}
 
-Get attributes for the specified course. See [SCORM Cloud Course Attributes](lib/attributes.md).
+Get attributes for the specified course. See [Course Attributes](courseattributes.md).
 
 Parameters:
 
@@ -144,7 +144,7 @@ api.getCourseAttributes('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error,
 
 #### .setCourseAttributes(courseid, attributes, callback) {#setCourseAttributes}
 
-Set attributes for the specified course. See [SCORM Cloud Course Attributes](lib/attributes.md).
+Set attributes for the specified course. See [Course Attributes](courseattributes.md).
 
 Parameters:
 
