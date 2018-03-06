@@ -1,8 +1,8 @@
 # scormcloud-api-wrapper
 
-Node.js client for the [SCORM Cloud API](https://cloud.scorm.com/docs/index.html).
-
 [![npm](https://img.shields.io/npm/v/scormcloud-api-wrapper.svg?style=flat-square)](https://www.npmjs.com/package/scormcloud-api-wrapper)
+
+Node.js client for the [SCORM Cloud API](https://cloud.scorm.com/docs/index.html).
 
 ## Installation
 
