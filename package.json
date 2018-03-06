@@ -9,16 +9,17 @@
     "url": "git+https://github.com/swestmoreland/scormcloud-api-wrapper.git"
   },
   "keywords": [
-    "elearning",
-    "scorm",
-    "scormcloud",
     "api",
+    "elearning",
     "lms",
     "lrs",
+    "rustici",
+    "scorm",
+    "scormcloud",
     "tincan",
     "xapi"
   ],
-  "main": "lib/scormcloud.js",
+  "main": "src/scormcloud.js",
   "dependencies": {
     "lodash": "^4.17.5",
     "md5": "^2.2.1",
