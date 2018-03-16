@@ -1,5 +1,7 @@
 # Summary
 
+### Overview
+
 * [Introduction](README.md)
 * [Installation](README.md#installation)
 * [Usage](README.md#usage)
@@ -66,5 +68,4 @@
 
 ### Appendix
 
-* [Course Attributes](api/courseattributes.md
-)
+* [Course Attributes](api/courseattributes.md)
