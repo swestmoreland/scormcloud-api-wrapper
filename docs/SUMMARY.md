@@ -68,5 +68,4 @@
 
 ### Appendix
 
-* [Course Attributes](api/courseattributes.md
-)
+* [Course Attributes](api/courseattributes.md)
