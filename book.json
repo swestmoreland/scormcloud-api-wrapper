@@ -1,7 +1,0 @@
-{
-    "plugins": ["-fontsettings", "-sharing", "toggle-chapters"],
-    "root": "./docs",
-    "styles": {
-        "website": "website.css"
-    }
-}
