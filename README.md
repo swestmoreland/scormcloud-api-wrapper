@@ -9,9 +9,14 @@
 <p align="center">
   Node.js client for the <a href="https://cloud.scorm.com/docs/index.html">SCORM Cloud API</a>.
   <br>
-  <a href="https://stevenwestmoreland.com/projects/scormcloud-api-wrapper.html#api"><strong>API Documentation</strong></a>
-  <br>
-  <br>
+  <strong>
+    <a href="https://stevenwestmoreland.com/projects/scormcloud-api-wrapper.html#api">API Documentation</a>
+    /
+    <a href="https://stevenwestmoreland.com/2017/11/nodejs-client-for-scormcloud-api.html">Getting Started</a>
+  </strong>
+</p>
+
+<p align="center">
   <a href="https://badge.fury.io/js/scormcloud-api-wrapper">
     <img src="https://badge.fury.io/js/scormcloud-api-wrapper.svg" alt="npm version badge">
   </a>
