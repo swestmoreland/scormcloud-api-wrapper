@@ -73,11 +73,11 @@ api.getCourseList(function (error, result) {
 
 For more information, see [Getting started with the Node.js client for the SCORM Cloud API](https://stevenwestmoreland.com/2017/11/nodejs-client-for-scormcloud-api.html).
 
-## API {#api}
+## API
 
 ### Debug Service
 
-#### .authPing(callback) {#authPing}
+<h4 id="#authPing">.authPing(callback)</h4>
 
 Verifies that your credentials are valid and that the web service is reachable.
 
@@ -94,7 +94,7 @@ api.authPing(function (error, result) {
 
 ### Course Service
 
-#### .getCoursePreviewUrl(courseid, [versionid]) {#getCoursePreviewUrl}
+<h4 id="#getCoursePreviewUrl">.getCoursePreviewUrl(courseid, [versionid])</h4>
 
 Get the preview url for the specified course.
 
@@ -107,7 +107,7 @@ Parameters:
 let previewUrl = api.getCoursePreviewUrl('810348d9-318e-48d5-b352-a1f6eb3a92cd');
 ```
 
-#### .courseExists(courseid, callback) {#courseExists}
+<h4 id="#courseExists">.courseExists(courseid, callback)</h4>
 
 Check whether or not the specified course exists.
 
@@ -123,7 +123,7 @@ api.courseExists('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, result
 });
 ```
 
-#### .deleteCourse(courseid, [options], callback) {#deleteCourse}
+<h4 id="#deleteCourse">.deleteCourse(courseid, [options], callback)</h4>
 
 Delete the specified course.
 
@@ -144,7 +144,7 @@ api.deleteCourse('bd16aa80-f042-44b2-94a8-dd18a5484740', function (error, result
 });
 ```
 
-#### .getCourseAttributes(courseid, callback) {#getCourseAttributes}
+<h4 id="#getCourseAttributes">.getCourseAttributes(courseid, callback)</h4>
 
 Get attributes for the specified course. See [Course Attributes](http://scorm.com/wp-content/assets/cloud_docs/scorm_cloud_api_properties.xlsx).
 
@@ -236,7 +236,7 @@ api.getCourseAttributes('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error,
 });
 ```
 
-#### .setCourseAttributes(courseid, attributes, callback) {#setCourseAttributes}
+<h4 id="#setCourseAttributes">.setCourseAttributes(courseid, attributes, callback)</h4>
 
 Set attributes for the specified course. See [Course Attributes](http://scorm.com/wp-content/assets/cloud_docs/scorm_cloud_api_properties.xlsx).
 
@@ -258,7 +258,7 @@ api.setCourseAttributes('810348d9-318e-48d5-b352-a1f6eb3a92cd', { "desiredWidth"
 });
 ```
 
-#### .getCourseList([options], callback) {#getCourseList}
+<h4 id="#getCourseList">.getCourseList([options], callback)</h4>
 
 Retrieve a list of courses associated with the `appid`.
 
@@ -320,7 +320,7 @@ api.getCourseList({ "tags": "golf" }, function (error, result) {
 });
 ```
 
-#### .getCourseDetail(courseid, callback) {#getCourseDetail}
+<h4 id="#getCourseDetail">.getCourseDetail(courseid, callback)</h4>
 
 Retrieve details about the specified course. Includes version information; see [Course Versioning and Overwriting](https://cloud.scorm.com/docs/advanced/versioning.html).
 
@@ -350,7 +350,7 @@ api.getCourseDetail('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, res
 });
 ```
 
-#### .importCourse(courseid, path, callback) {#importCourse}
+<h4 id="#importCourse">.importCourse(courseid, path, callback)</h4>
 
 Import a course. If the import is successful, the imported course will be registered using the courseid provided. If the courseid refers to an existing course, a new version of the course will be created; see [Course Versioning and Overwriting](https://cloud.scorm.com/docs/advanced/versioning.html).
 
@@ -377,7 +377,7 @@ api.importCourse('c2cbb917-c5b2-4b43-a9c3-5b7561e519b9', 'Archive.zip', function
 
 ### Registration Service
 
-#### .createRegistration(courseid, regid, fname, lname, learnerid, [options], callback) {#createRegistration}
+<h4 id="#createRegistration">.createRegistration(courseid, regid, fname, lname, learnerid, [options], callback)</h4>
 
 Create a new registration.
 
@@ -417,7 +417,7 @@ api.createRegistration(
 );
 ```
 
-#### .registrationExists(regid, callback) {#registrationExists}
+<h4 id="#registrationExists">.registrationExists(regid, callback)</h4>
 
 Check whether or not the specified registration exists.
 
@@ -433,7 +433,7 @@ api.registrationExists('09e6c1c5-1f20-4df0-b9a5-145364d0003b', function (error, 
 });
 ```
 
-#### .deleteRegistration(regid, callback) {#deleteRegistration}
+<h4 id="#deleteRegistration">.deleteRegistration(regid, callback)</h4>
 
 Delete the specified registration.
 
@@ -449,7 +449,7 @@ api.deleteRegistration('09e6c1c5-1f20-4df0-b9a5-145364d0003b', function (error, 
 });
 ```
 
-#### .resetRegistration(regid, callback) {#resetRegistration}
+<h4 id="#resetRegistration">.resetRegistration(regid, callback)</h4>
 
 Reset the specified registration.
 
@@ -465,7 +465,7 @@ api.resetRegistration('09e6c1c5-1f20-4df0-b9a5-145364d0003b', function (error, r
 });
 ```
 
-#### .getRegistrationList([options], callback) {#getRegistrationList}
+<h4 id="#getRegistrationList">.getRegistrationList([options], callback)</h4>
 
 Retrieve a list of registrations associated with the `appid`.
 
@@ -506,7 +506,7 @@ api.getRegistrationList(function (error, result) {
 });
 ```
 
-#### .getRegistrationDetail(regid, callback) {#getRegistrationDetail}
+<h4 id="#getRegistrationDetail">.getRegistrationDetail(regid, callback)</h4>
 
 Retrieve details about the specified registration.
 
@@ -541,7 +541,7 @@ api.getRegistrationDetail('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (erro
 });
 ```
 
-#### .getRegistrationResult(regid, [options], callback) {#getRegistrationResult}
+<h4 id="#getRegistrationResult">.getRegistrationResult(regid, [options], callback)</h4>
 
 Retrieve details about the results of the specified registration.
 
@@ -567,7 +567,7 @@ api.getRegistrationResult('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (erro
 });
 ```
 
-#### .getRegistrationListResults([options], callback) {#getRegistrationListResults}
+<h4 id="#getRegistrationListResults">.getRegistrationListResults([options], callback)</h4>
 
 Combination of `getRegistrationList` and `getRegistrationResult` methods; can be used for basic reporting functionality.
 
@@ -617,7 +617,7 @@ api.getRegistrationListResults(function (error, result) {
 });
 ```
 
-#### .getLaunchUrl(regid, redirecturl, [options]) {#getLaunchUrl}
+<h4 id="#getLaunchUrl">.getLaunchUrl(regid, redirecturl, [options])</h4>
 
 Get the launch url for the specified registration
 
@@ -642,7 +642,7 @@ Options:
 let launchUrl = api.getLaunchUrl('2819b19c-bbe6-4d27-b3c0-70c80a56dc66', 'blank');
 ```
 
-#### .getLaunchHistory(regid, callback) {#getLaunchHistory}
+<h4 id="#getLaunchHistory">.getLaunchHistory(regid, callback)</h4>
 
 Retrieve historical list of launches for the specified registration.
 
@@ -673,7 +673,7 @@ api.getLaunchHistory('2ffab123-cb7c-4744-af8e-493a6c74e65b', function (error, re
 });
 ```
 
-#### .getLaunchInfo(launchid, callback) {#getLaunchInfo}
+<h4 id="#getLaunchInfo">.getLaunchInfo(launchid, callback)</h4>
 
 Retrieve historical data for the specified launch.
 
@@ -717,7 +717,7 @@ api.getLaunchInfo('66461586', function (error, result) {
 });
 ```
 
-#### .resetGlobalObjectives(regid, callback) {#resetGlobalObjectives}
+<h4 id="#resetGlobalObjectives">.resetGlobalObjectives(regid, callback)</h4>
 
 Reset all global objectives associated with this registration.
 
@@ -733,7 +733,7 @@ api.resetGlobalObjectives('0247b487-c3ab-4404-9103-70373ac11ef3', function (erro
 });
 ```
 
-#### .updateLearnerInfo(learnerid, fname, lname, [options], callback) {#updateLearnerInfo}
+<h4 id="#updateLearnerInfo">.updateLearnerInfo(learnerid, fname, lname, [options], callback)</h4>
 
 Update learner information that was given during previous `createRegistration` calls.
 
@@ -750,7 +750,7 @@ Options:
  * `newid` - The new id to assign to this learner.
  * `email` - The email of the learner.
 
-#### .getPostbackInfo(regid, callback) {#getPostbackInfo}
+<h4 id="#getPostbackInfo">.getPostbackInfo(regid, callback)</h4>
 
 This method provides a way to retrieve the postback attributes that were set with `createRegistration` or `updatePostbackInfo` calls. See [Registration Postbacks](https://cloud.scorm.com/docs/advanced/postback.html).
 
@@ -759,7 +759,7 @@ Parameters:
  * `regid` - The unique identifier for the registration.
  * `callback`
 
-#### .updatePostbackInfo(regid, postbackUrl, options, callback) {#updatePostbackInfo}
+<h4 id="#updatePostbackInfo">.updatePostbackInfo(regid, postbackUrl, options, callback)</h4>
 
 This method provides a way to update the postback settings for a registration created with the `createRegistration` call. If you wish to change an authenticated postback to an unauthenticated postback, call this method with only a url specified.
 
@@ -777,7 +777,7 @@ Options:
  * `urlpass` - If credentials for the postbackurl are provided, this must be included, it is the password to be used in authorizing the postback of data to the URL specified by postbackurl.
  * `resultsformat` - This parameter allows you to specify a level of detail in the information that is posted back while the course is being taken. It may be one of three values: “course” (course summary), “activity” (activity summary, or “full” (full detail), and is set to “course” by default.
 
-#### .deletePostbackInfo(regid, callback) {#deletePostbackInfo}
+<h4 id="#deletePostbackInfo">.deletePostbackInfo(regid, callback)</h4>
 
 Clear postback settings so that registration results no longer invoke a postback url.
 
@@ -786,7 +786,7 @@ Parameters:
  * `regid` - The unique identifier for the registration.
  * `callback`
 
-#### .testRegistrationPostbackUrl(postbackUrl, options, callback) {#testRegistrationPostbackUrl}
+<h4 id="#testRegistrationPostbackUrl">.testRegistrationPostbackUrl(postbackUrl, options, callback)</h4>
 
 This method provides a way to test a URL for posting registration results back to, as they would be posted when using the postbackurl in the createRegistration call. When called, an example registration result will be posted to the URL given, or else an error will be reported regarding why the post failed.
 
@@ -805,7 +805,7 @@ Options:
 
 ### Invitation Service
 
-#### .createInvitation(courseid, public, [options], callback) {#createInvitation}
+<h4 id="#createInvitation">.createInvitation(courseid, public, [options], callback)</h4>
 
 Create a new invitation.
 
@@ -847,7 +847,7 @@ api.createInvitation('810348d9-318e-48d5-b352-a1f6eb3a92cd', true, function (err
 });
 ```
 
-#### .getInvitationInfo(invitationid, [options], callback) {#getInvitationInfo}
+<h4 id="#getInvitationInfo">.getInvitationInfo(invitationid, [options], callback)</h4>
 
 Retrieve details about the specified invitation.
 
@@ -894,7 +894,7 @@ api.getInvitationInfo('b4a6b1f2-1e00-41cc-a7bd-dce896ed3e08', function (error, r
 });
 ```
 
-#### .getInvitationList([options], callback) {#getInvitationList}
+<h4 id="#getInvitationList">.getInvitationList([options], callback)</h4>
 
 Retrieve a list of invitations that meet the filter criteria.
 
@@ -947,7 +947,7 @@ api.managementid  = 'HP1BW3KC2G';
 api.managementKey = 'Management App Secret Key';
 ```
 
-#### .getAppList(callback) {#getAppList}
+<h4 id="#getAppList">.getAppList(callback)</h4>
 
 Retrieve a list of applications associated with your realm.
 
@@ -976,7 +976,7 @@ api.getAppList(function (error, result) {
 });
 ```
 
-#### .getAppInfo(appid, callback) {#getAppInfo}
+<h4 id="#getAppInfo">.getAppInfo(appid, callback)</h4>
 
 Retrieve details about the specified application.
 
@@ -1010,7 +1010,7 @@ api.getAppInfo('FNPQCR5SRN', function (error, result) {
 });
 ```
 
-#### .createApplication(name, callback) {#createApplication}
+<h4 id="#createApplication">.createApplication(name, callback)</h4>
 
 Create a new application.
 
@@ -1044,7 +1044,7 @@ api.createApplication('New Applicaton', function (error, result) {
 }
 ```
 
-#### .updateApplication(appid, [options], callback) {#updateApplication}
+<h4 id="#updateApplication">.updateApplication(appid, [options], callback)</h4>
 
 Update the name and/or registration deletion permissions for an application.
 
@@ -1084,7 +1084,7 @@ api.updateApplication('IVPO0IN0LL', { allowdelete: true }, function (error, resu
 });
 ```
 
-#### .addSecretKey(appid, description, callback) {#addSecretKey}
+<h4 id="#addSecretKey">.addSecretKey(appid, description, callback)</h4>
 
 Create a new secret key for an application.
 
@@ -1127,7 +1127,7 @@ api.addSecretKey('IVPO0IN0LL', 'New Secret Key', function (error, result) {
 });
 ```
 
-#### .updateSecretKey(appid, keyid, [options], callback) {#updateSecretKey}
+<h4 id="#updateSecretKey">.updateSecretKey(appid, keyid, [options], callback)</h4>
 
 Updates a secret key associated with the given keyid.
 
@@ -1176,7 +1176,7 @@ api.updateSecretKey('IVPO0IN0LL', '45792a11-f084-4e37-817d-62977e906def', { acti
 });
 ```
 
-#### .deleteSecretKey(appid, keyid, callback) {#deleteSecretKey}
+<h4 id="#deleteSecretKey">.deleteSecretKey(appid, keyid, callback)</h4>
 
 Deletes a secret key associated with the given keyid.
 
@@ -1213,7 +1213,7 @@ api.deleteSecretKey('IVPO0IN0LL', '45792a11-f084-4e37-817d-62977e906def', functi
 
 ### Tagging Service
 
-#### getCourseTags(courseid, callback) {#getCourseTags}
+<h4 id="#getCourseTags">getCourseTags(courseid, callback)</h4>
 
 Retrieve a list of tags for the specified course.
 
@@ -1229,7 +1229,7 @@ api.getCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', function (error, resul
 });
 ```
 
-#### setCourseTags(courseid, tags, callback) {#setCourseTags}
+<h4 id="#setCourseTags">setCourseTags(courseid, tags, callback)</h4>
 
 Set a list of tags for the specified course.
 
@@ -1246,7 +1246,7 @@ api.setCourseTags('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'example,course', func
 });
 ```
 
-#### addCourseTag(courseid, tag, callback) {#addCourseTag}
+<h4 id="#addCourseTag">addCourseTag(courseid, tag, callback)</h4>
 
 Add a tag to the specified course.
 
@@ -1263,7 +1263,7 @@ api.addCourseTag('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag', function (error,
 });
 ```
 
-#### removeCourseTag(courseid, tag, callback) {#removeCourseTag}
+<h4 id="#removeCourseTag">removeCourseTag(courseid, tag, callback)</h4>
 
 Remove a tag from the specified course.
 
@@ -1280,7 +1280,7 @@ api.removeCourseTag('810348d9-318e-48d5-b352-a1f6eb3a92cd', 'tag', function (err
 });
 ```
 
-#### getLearnerTags(learnerid, callback) {#getLearnerTags}
+<h4 id="#getLearnerTags">getLearnerTags(learnerid, callback)</h4>
 
 Retrieve a list of tags for the specified learner.
 
@@ -1296,7 +1296,7 @@ api.getLearnerTags('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', function (error, resu
 });
 ```
 
-#### setLearnerTags(learnerid, tags, callback) {#setLearnerTags}
+<h4 id="#setLearnerTags">setLearnerTags(learnerid, tags, callback)</h4>
 
 Set a list of tags for the specified learner.
 
@@ -1313,7 +1313,7 @@ api.setLearnerTags('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'developer,tester', f
 });
 ```
 
-#### addLearnerTag(learnerid, tag, callback) {#addLearnerTag}
+<h4 id="#addLearnerTag">addLearnerTag(learnerid, tag, callback)</h4>
 
 Add a tag to the specified learner.
 
@@ -1330,7 +1330,7 @@ api.addLearnerTag('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'tag', function (error
 });
 ```
 
-#### removeLearnerTag(learnerid, tag, callback) {#removeLearnerTag}
+<h4 id="#removeLearnerTag">removeLearnerTag(learnerid, tag, callback)</h4>
 
 Remove a tag from the specified learner.
 
@@ -1347,7 +1347,7 @@ api.removeLearnerTag('2efae212-c03c-4904-9a9a-cec6f6b4d4f6', 'tag', function (er
 });
 ```
 
-#### getRegistrationTags(regid, callback) {#getRegistrationTags}
+<h4 id="#getRegistrationTags">getRegistrationTags(regid, callback)</h4>
 
 Retrieve a list of tags for the specified registration.
 
@@ -1363,7 +1363,7 @@ api.getRegistrationTags('988a83fa-fd1e-40bc-b93f-89346667448b', function (error,
 });
 ```
 
-#### setRegistrationTags(regid, tags, callback) {#setRegistrationTags}
+<h4 id="#setRegistrationTags">setRegistrationTags(regid, tags, callback)</h4>
 
 Set a list of tags for the specified registration.
 
@@ -1380,7 +1380,7 @@ api.setRegistrationTags('988a83fa-fd1e-40bc-b93f-89346667448b', 'example,registr
 });
 ```
 
-#### addRegistrationTag(regid, tag, callback) {#addRegistrationTag}
+<h4 id="#addRegistrationTag">addRegistrationTag(regid, tag, callback)</h4>
 
 Add a tag to the specified registration.
 
@@ -1397,7 +1397,7 @@ api.addRegistrationTag('988a83fa-fd1e-40bc-b93f-89346667448b', 'tag', function (
 });
 ```
 
-#### .removeRegistrationTag(regid, tag, callback) {#removeRegistrationTag}
+<h4 id="#removeRegistrationTag">.removeRegistrationTag(regid, tag, callback)</h4>
 
 Remove a tag from the specified registration.
 
@@ -1416,7 +1416,7 @@ api.removeRegistrationTag('988a83fa-fd1e-40bc-b93f-89346667448b', 'tag', functio
 
 ### Reporting Service
 
-#### .getAccountInfo(callback) {#getAccountInfo}
+<h4 id="#getAccountInfo">.getAccountInfo(callback)</h4>
 
 Retrieve information about the account associated with the `appid`.
 
