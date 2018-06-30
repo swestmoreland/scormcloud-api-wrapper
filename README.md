@@ -1,11 +1,21 @@
-# scormcloud-api-wrapper
+<p align="center">
+  <a href="https://stevenwestmoreland.com/projects/scormcloud-api-wrapper.html">
+    <img src="https://stevenwestmoreland.com/img/scormcloud.png" width="250">
+  </a>
+</p>
 
-[![npm](https://img.shields.io/npm/v/office-document-properties.svg?style=flat)](https://www.npmjs.com/package/scormcloud-api-wrapper)
-[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/swestmoreland/scormcloud-api-wrapper/blob/master/LICENSE)
-[![GitHub](https://img.shields.io/github/stars/swestmoreland/scormcloud-api-wrapper.svg?style=social&logo=github&label=Stars)](https://github.com/swestmoreland/scormcloud-api-wrapper/)
-[![Twitter](https://img.shields.io/twitter/follow/swestmoreland.svg?style=social&logo=twitter&label=Follow)](https://twitter.com/intent/follow?screen_name=swestmoreland)
+<h3 align="center">scormcloud-api-wrapper</h3>
 
-Node.js client for the [SCORM Cloud API](https://cloud.scorm.com/docs/index.html).
+<p align="center">
+  Node.js client for the <a href="https://cloud.scorm.com/docs/index.html">SCORM Cloud API</a>.
+  <br>
+  <a href="https://stevenwestmoreland.com/projects/scormcloud-api-wrapper.html#api"><strong>API Documentation</strong></a>
+  <br>
+  <br>
+  <a href="https://badge.fury.io/js/scormcloud-api-wrapper">
+    <img src="https://badge.fury.io/js/scormcloud-api-wrapper.svg" alt="npm version badge">
+  </a>
+</p>
 
 ## Installation
 
@@ -17,14 +27,30 @@ npm install scormcloud-api-wrapper --save
 
 ## Usage
 
+Construct an instance of the API client with your Application ID and secret key.
+
 ```js
 // Import the module.
 var SCORMCloud = require('scormcloud-api-wrapper');
 
 // Create an instance with your API credentials.
 var api = new SCORMCloud('appid', 'secretKey');
+```
 
-// See API documentation for additional examples.
+Use the [`authPing`](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper.html#authPing) method to verify that your credentials are valid and that the web service is reachable.
+
+```js
+// Verify credentials are valid and service is reachable.
+api.authPing(function (error, result) {
+  if (error) throw error; console.log(result);
+  /* true */
+});
+```
+
+Asynchronous functions use [error-first callbacks](http://fredkschott.com/post/2014/03/understanding-error-first-callbacks-in-node-js/). The first argument is reserved for an error object, and the second for response data.
+
+```js
+// Retrieve a list of courses associated with the appid.
 api.getCourseList(function (error, result) {
   console.log(result);
   /*
@@ -45,63 +71,3 @@ api.getCourseList(function (error, result) {
 ```
 
 For more information, see [Getting started with the Node.js client for the SCORM Cloud API](https://stevenwestmoreland.com/2017/11/nodejs-client-for-scormcloud-api.html).
-
-## API
-
-* [Debug Service](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/debug.html)
-    * [authPing](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/debug.html#authPing)
-* [Course Service](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/course.html)
-    * [getCoursePreviewUrl](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/course.html#getCoursePreviewUrl)
-    * [courseExists](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/course.html#courseExists)
-    * [deleteCourse](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/course.html#deleteCourse)
-    * [getCourseAttributes](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/course.html#getCourseAttributes)
-    * [setCourseAttributes](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/course.html#setCourseAttributes)
-    * [getCourseList](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/course.html#getCourseList)
-    * [getCourseDetail](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/course.html#getCourseDetail)
-    * [importCourse](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/course.html#importCourse)
-* [Registration Service](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html)
-    * [createRegistration](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#createRegistration)
-    * [registrationExists](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#registrationExists)
-    * [deleteRegistration](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#deleteRegistration)
-    * [resetRegistration](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#resetRegistration)
-    * [getRegistrationList](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#getRegistrationList)
-    * [getRegistrationDetail](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#getRegistrationDetail)
-    * [getRegistrationResult](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#getRegistrationResult)
-    * [getRegistrationListResults](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#getRegistrationListResults)
-    * [getLaunchUrl](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#getLaunchUrl)
-    * [getLaunchUrl](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#getLaunchHistory)
-    * [getLaunchInfo](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#getLaunchInfo)
-    * [resetGlobalObjectives](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#resetGlobalObjectives)
-    * [updateLearnerInfo](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#updateLearnerInfo)
-    * [updateLearnerInfo](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#updateLearnerInfo)
-    * [getPostbackInfo](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#getPostbackInfo)
-    * [updatePostbackInfo](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#updatePostbackInfo)
-    * [deletePostbackInfo](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#deletePostbackInfo)
-    * [testRegistrationPostbackUrl](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/registration.html#testRegistrationPostbackUrl)
-* [Invitation Service](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/invitation.html)
-    * [createInvitation](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/invitation.html#createInvitation)
-    * [getInvitationInfo](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/invitation.html#getInvitationInfo)
-    * [getInvitationList](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/invitation.html#getInvitationList)
-* [Application Service](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/application.html)
-    * [getAppList](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/application.html#getAppList)
-    * [getAppInfo](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/application.html#getAppInfo)
-    * [createApplication](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/application.html#createApplication)
-    * [updateApplication](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/application.html#updateApplication)
-    * [addSecretKey](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/application.html#addSecretKey)
-    * [updateSecretKey](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/application.html#updateSecretKey)
-    * [deleteSecretKey](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/application.html#deleteSecretKey)
-* [Tagging Service](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html)
-    * [getCourseTags](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html#getCourseTags)
-    * [setCourseTags](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html#setCourseTags)
-    * [addCourseTag](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html#addCourseTag)
-    * [removeCourseTag](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html#removeCourseTag)
-    * [getLearnerTags](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html#getLearnerTags)
-    * [setLearnerTags](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html#setLearnerTags)
-    * [addLearnerTag](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html#addLearnerTag)
-    * [removeLearnerTag](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html#removeLearnerTag)
-    * [getRegistrationTags](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html#getRegistrationTags)
-    * [setRegistrationTags](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html#setRegistrationTags)
-    * [addRegistrationTag](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html#addRegistrationTag)
-    * [removeRegistrationTag](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/tagging.html#removeRegistrationTag)
-* [Reporting Service](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/reporting.html)
-    * [getAccountInfo](https://stevenwestmoreland.com/projects/scormcloud-api-wrapper/docs/api/reporting.html#getAccountInfo)
