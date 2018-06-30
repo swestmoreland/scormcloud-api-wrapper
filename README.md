@@ -9,8 +9,7 @@
 <p align="center">
   Node.js client for the <a href="https://cloud.scorm.com/docs/index.html">SCORM Cloud API</a>.
   <br>
-  <a href="https://stevenwestmoreland.com/2017/11/nodejs-client-for-scormcloud-api.html"><strong>Getting Started</strong></a>
-  <a href="https://stevenwestmoreland.com/projects/scormcloud-api-wrapper.html#api"><strong>API Documentation</strong></a> / 
+  <a href="https://stevenwestmoreland.com/2017/11/nodejs-client-for-scormcloud-api.html"><strong>Getting Started</strong></a> / <a href="https://stevenwestmoreland.com/projects/scormcloud-api-wrapper.html#api"><strong>API Documentation</strong></a>
 </p>
 
 <p align="center">
