@@ -22,8 +22,16 @@ var SCORMCloud = function (appid, secretKey, managementid, managementKey) {
 module.exports = SCORMCloud;
 
 // Helper that wraps the given object in an array, if its not already one.
+// Returns an empty array given a falsey object, including '' which is returned
+// from the api.
 function arrayWrap(object) {
-    return Array.isArray(object) ? object : [object]
+    if (object === null || object === undefined || object === '') {
+        return []
+    } else if (_.isArray(object)) {
+        return object
+    } else {
+        return [object]
+    }
 }
 
 //
@@ -152,11 +160,9 @@ SCORMCloud.prototype.setCourseAttributes = function (courseid, attributes, callb
         // If no attributes changed we get back: `attributes: ''`
         // If one changed we get back: `attributes: { name, value }`
         // If more than one changed we get back: `attributes: [{ name, value }]`
-        if (attributes) {
-            arrayWrap(attributes).forEach(function (attribute) {
-                data[attribute.name] = getCourseAttributeValue(attribute.name, attribute.value);
-            });
-        }
+        arrayWrap(attributes).forEach(function (attribute) {
+            data[attribute.name] = getCourseAttributeValue(attribute.name, attribute.value);
+        });
 
         return callback(error, data);
 
@@ -511,7 +517,7 @@ SCORMCloud.prototype.getRegistrationListResults = function (options, callback) {
         if (error) return callback(error, json);
 
         let data = [];
-        let registrationList = _.isArray(json.rsp.registrationlist.registration) ? json.rsp.registrationlist.registration : [ json.rsp.registrationlist.registration ];
+        let registrationList = arrayWrap(json.rsp.registrationlist.registration)
 
         registrationList.forEach(function (registration) {
             data.push({
