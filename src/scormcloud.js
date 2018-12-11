@@ -21,6 +21,11 @@ var SCORMCloud = function (appid, secretKey, managementid, managementKey) {
 }
 module.exports = SCORMCloud;
 
+// Helper that wraps the given object in an array, if its not already one.
+function arrayWrap(object) {
+    return Array.isArray(object) ? object : [object]
+}
+
 //
 // Debug Service
 //
@@ -144,9 +149,14 @@ SCORMCloud.prototype.setCourseAttributes = function (courseid, attributes, callb
         let data = {};
         let attributes = json.rsp.attributes.attribute;
 
-        attributes.forEach(function (attribute) {
-            data[attribute.name] = getCourseAttributeValue(attribute.name, attribute.value);
-        });
+        // If no attributes changed we get back: `attributes: ''`
+        // If one changed we get back: `attributes: { name, value }`
+        // If more than one changed we get back: `attributes: [{ name, value }]`
+        if (attributes) {
+            arrayWrap(attributes).forEach(function (attribute) {
+                data[attribute.name] = getCourseAttributeValue(attribute.name, attribute.value);
+            });
+        }
 
         return callback(error, data);
 
