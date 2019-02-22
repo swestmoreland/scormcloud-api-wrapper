@@ -21,7 +21,7 @@
   ],
   "main": "src/scormcloud.js",
   "dependencies": {
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.11",
     "md5": "^2.2.1",
     "moment": "^2.21.0",
     "request": "^2.87.0",
