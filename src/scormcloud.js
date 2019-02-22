@@ -172,7 +172,7 @@ SCORMCloud.prototype.getCourseList = function (options, callback) {
         if (error) return callback(error, json);
 
         let data = [];
-        let courseList = _.isArray(json.rsp.courselist.course) ? json.rsp.courselist.course : [ json.rsp.courselist.course ];
+        let courseList = toArray(json.rsp.courselist.course);
 
         courseList.forEach(function (course) {
             data.push({
@@ -237,7 +237,7 @@ SCORMCloud.prototype.importCourse = function (courseid, path, callback) {
         let data = {
             "status":  json.rsp.status,
             "message": json.rsp.message,
-            "importresult": _.isArray(json.rsp.importresult) ? json.rsp.importresult : [ json.rsp.importresult ]
+            "importresult": toArray(json.rsp.importresult)
         }
 
         return callback(error, data);
@@ -380,7 +380,7 @@ SCORMCloud.prototype.getRegistrationList = function (options, callback) {
         if (error) return callback(error, json);
 
         let data = [];
-        let registrationList = _.isArray(json.rsp.registrationlist.registration) ? json.rsp.registrationlist.registration : [ json.rsp.registrationlist.registration ];
+        let registrationList = toArray(json.rsp.registrationlist.registration);
 
         registrationList.forEach(function (registration) {
             data.push({
@@ -501,7 +501,7 @@ SCORMCloud.prototype.getRegistrationListResults = function (options, callback) {
         if (error) return callback(error, json);
 
         let data = [];
-        let registrationList = _.isArray(json.rsp.registrationlist.registration) ? json.rsp.registrationlist.registration : [ json.rsp.registrationlist.registration ];
+        let registrationList = toArray(json.rsp.registrationlist.registration);
 
         registrationList.forEach(function (registration) {
             data.push({
@@ -579,7 +579,7 @@ SCORMCloud.prototype.getLaunchHistory = function (regid, callback) {
         if (error) return callback(error, json);
 
         let data = [];
-        let launchHistory = _.isArray(json.rsp.launchhistory.launch) ? json.rsp.launchhistory.launch : [ json.rsp.launchhistory.launch ];
+        let launchHistory = toArray(json.rsp.launchhistory.launch);
 
         launchHistory.forEach(function (launch) {
             data.push({
@@ -902,7 +902,7 @@ SCORMCloud.prototype.getInvitationInfo = function (invitationid, options, callba
 
         if (!_.isString(json.rsp.invitationInfo.userInvitations)) {
 
-            let userInvitations = _.isArray(json.rsp.invitationInfo.userInvitations.userInvitation) ? json.rsp.invitationInfo.userInvitations.userInvitation : [ json.rsp.invitationInfo.userInvitations.userInvitation ];
+            let userInvitations = toArray(json.rsp.invitationInfo.userInvitations.userInvitation);
             userInvitations.forEach(function (invitation) {
                 data.userInvitations.push({
                     "email":          invitation.email,
@@ -947,7 +947,7 @@ SCORMCloud.prototype.getInvitationList = function (options, callback) {
         if (error) return callback(error, json);
 
         let data = [];
-        let invitationList = _.isArray(json.rsp.invitationlist.invitationInfo) ? json.rsp.invitationlist.invitationInfo : [ json.rsp.invitationlist.invitationInfo ];
+        let invitationList = toArray(json.rsp.invitationlist.invitationInfo);
 
         invitationList.forEach(function (invitation) {
             data.push({
@@ -985,7 +985,7 @@ SCORMCloud.prototype.getAppList = function (callback) {
         if (error) return callback(error, json);
 
         let data = [];
-        let applicationList = _.isArray(json.rsp.applicationlist.application) ? json.rsp.applicationlist.application : [ json.rsp.applicationlist.application ];
+        let applicationList = toArray(json.rsp.applicationlist.application);
 
         applicationList.forEach(function (application) {
             data.push({
@@ -1023,7 +1023,7 @@ SCORMCloud.prototype.getAppInfo = function (childappid, callback) {
             "secretKeys":     []
         }
 
-        let secretKeys = _.isArray(json.rsp.appInfo.application.secretKeys.secretKey) ? json.rsp.appInfo.application.secretKeys.secretKey : [ json.rsp.appInfo.application.secretKeys.secretKey ];
+        let secretKeys = toArray(json.rsp.appInfo.application.secretKeys.secretKey);
 
         secretKeys.forEach(function (secretKey) {
             data.secretKeys.push({
@@ -1064,7 +1064,7 @@ SCORMCloud.prototype.createApplication = function (name, callback) {
             "secretKeys":     []
         }
 
-        let secretKeys = _.isArray(json.rsp.appInfo.application.secretKeys.secretKey) ? json.rsp.appInfo.application.secretKeys.secretKey : [ json.rsp.appInfo.application.secretKeys.secretKey ];
+        let secretKeys = toArray(json.rsp.appInfo.application.secretKeys.secretKey);
 
         secretKeys.forEach(function (secretKey) {
             data.secretKeys.push({
@@ -1120,7 +1120,7 @@ SCORMCloud.prototype.updateApplication = function (childappid, options, callback
             "secretKeys":     []
         }
 
-        let secretKeys = _.isArray(json.rsp.appInfo.application.secretKeys.secretKey) ? json.rsp.appInfo.application.secretKeys.secretKey : [ json.rsp.appInfo.application.secretKeys.secretKey ];
+        let secretKeys = toArray(json.rsp.appInfo.application.secretKeys.secretKey);
 
         secretKeys.forEach(function (secretKey) {
             data.secretKeys.push({
@@ -1165,7 +1165,7 @@ SCORMCloud.prototype.addSecretKey = function (childappid, description, callback)
             "secretKeys":     []
         }
 
-        let secretKeys = _.isArray(json.rsp.appInfo.application.secretKeys.secretKey) ? json.rsp.appInfo.application.secretKeys.secretKey : [ json.rsp.appInfo.application.secretKeys.secretKey ];
+        let secretKeys = toArray(json.rsp.appInfo.application.secretKeys.secretKey);
 
         secretKeys.forEach(function (secretKey) {
             data.secretKeys.push({
@@ -1224,7 +1224,7 @@ SCORMCloud.prototype.updateSecretKey = function (childappid, secretkeyid, option
             "secretKeys":     []
         }
 
-        let secretKeys = _.isArray(json.rsp.appInfo.application.secretKeys.secretKey) ? json.rsp.appInfo.application.secretKeys.secretKey : [ json.rsp.appInfo.application.secretKeys.secretKey ];
+        let secretKeys = toArray(json.rsp.appInfo.application.secretKeys.secretKey);
 
         secretKeys.forEach(function (secretKey) {
             data.secretKeys.push({
@@ -1269,7 +1269,7 @@ SCORMCloud.prototype.deleteSecretKey = function (childappid, secretkeyid, callba
             "secretKeys":     []
         }
 
-        let secretKeys = _.isArray(json.rsp.appInfo.application.secretKeys.secretKey) ? json.rsp.appInfo.application.secretKeys.secretKey : [ json.rsp.appInfo.application.secretKeys.secretKey ];
+        let secretKeys = toArray(json.rsp.appInfo.application.secretKeys.secretKey);
 
         secretKeys.forEach(function (secretKey) {
             data.secretKeys.push({
@@ -1588,6 +1588,28 @@ var getCourseAttributeValue = function (name, value) {
         default:
             return value;
     }
+
+}
+
+var toArray = function (value) {
+
+    // e.g. { stat: 'ok', attributes: { attribute: [ [Object], [Object] ] } }
+    if (_.isArray(value)) {
+        return value;
+    }
+
+    // e.g. { stat: 'ok', attributes: '' }
+    if (_.isEmpty(value)) {
+        return [];
+    }
+
+    // { stat: 'ok', attributes: { attribute: { name: '...', value: '...' } } }
+    if (_.isObject(value)) {
+        return [value];
+    }
+
+    // Return an empty array, otherwise.
+    return [];
 
 }
 
