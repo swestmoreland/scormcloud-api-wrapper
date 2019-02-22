@@ -1603,7 +1603,7 @@ var toArray = function (value) {
         return [];
     }
 
-    // { stat: 'ok', attributes: { attribute: { name: '...', value: '...' } } }
+    // e.g. { stat: 'ok', attributes: { attribute: { name: '...', value: '...' } } }
     if (_.isObject(value)) {
         return [value];
     }
