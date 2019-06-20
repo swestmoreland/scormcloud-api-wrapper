@@ -44,7 +44,7 @@ SCORMCloud.prototype.authPing = function (callback) {
 // Course Service
 //
 
-SCORMCloud.prototype.getCoursePreviewUrl = function (courseid, versionid) {
+SCORMCloud.prototype.getCoursePreviewUrl = function (courseid, versionid, redirecturl) {
 
     var url = new URL('api?method=rustici.course.preview', this.serviceUrl);
 
@@ -53,6 +53,9 @@ SCORMCloud.prototype.getCoursePreviewUrl = function (courseid, versionid) {
 
     // The version of the package which will be used. If omitted, use the most recent version.
     if (versionid) url.searchParams.set('versionid', versionid);
+
+    // The redirect url for when the client exits preview mode.
+    if (redirecturl) url.searchParams.set('redirecturl', redirecturl);
 
     return this._getUrl(url);
 
