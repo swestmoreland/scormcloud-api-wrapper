@@ -94,7 +94,7 @@ api.authPing(function (error, result) {
 
 ### Course Service
 
-<h4 id="#getCoursePreviewUrl">.getCoursePreviewUrl(courseid, [versionid])</h4>
+<h4 id="#getCoursePreviewUrl">.getCoursePreviewUrl(courseid, [versionid, [redirectUrl]])</h4>
 
 Get the preview url for the specified course.
 
@@ -102,6 +102,10 @@ Parameters:
 
  * `courseid` - The unique identifier for the course.
  * `versionid` - The version of the package which will be used. If omitted, use the most recent version.
+ * `redirecturl` - The redirect url for when the client exits course preview. The following keywords are available:
+    * “closer” - Redirect to a page that automatically tries to close the browser window.
+    * “blank” - Redirect to a blank page.
+    * “message” - Redirect to a page with a simple message about the course being complete.
 
 ```js
 let previewUrl = api.getCoursePreviewUrl('810348d9-318e-48d5-b352-a1f6eb3a92cd');
