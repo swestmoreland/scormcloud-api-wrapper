@@ -161,6 +161,12 @@ SCORMCloud.prototype.setCourseAttributes = function (courseid, attributes, callb
 
         if (error) return callback(error, json);
 
+        // From SCORM Cloud documentation:
+        // (If an attribute is set to it’s existing value, it will not appear in the returned list. Only changed values will appear.) 
+
+        // check for any returned attributes, if there are no changes attributes will be an empty string
+        if (json.rsp.attributes === "") return callback(error, {});
+
         let data = {};
         let attributes = json.rsp.attributes.attribute;
 
