@@ -44,6 +44,23 @@ SCORMCloud.prototype.authPing = function (callback) {
 // Course Service
 //
 
+SCORMCloud.prototype.getCourseMetaData = function (courseid, callback) {
+
+    var url = new URL('api?method=rustici.course.getMetadata', this.serviceUrl);
+
+    // The id used to identify this course.
+    if (courseid) url.searchParams.set('courseid', courseid);
+
+    this._request(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = json.rsp.package;
+
+        return callback(error, data);
+    });
+}
+
 SCORMCloud.prototype.getCoursePreviewUrl = function (courseid, versionid, redirecturl) {
 
     var url = new URL('api?method=rustici.course.preview', this.serviceUrl);
