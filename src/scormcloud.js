@@ -145,7 +145,7 @@ SCORMCloud.prototype.setCourseAttributes = function (courseid, attributes, callb
         if (error) return callback(error, json);
 
         let data = {};
-        let attributes = json.rsp.attributes.attribute;
+        let attributes = json.rsp.attributes !== "" ? json.rsp.attributes.attribute : [];
 
         attributes.forEach(function (attribute) {
             data[attribute.name] = getCourseAttributeValue(attribute.name, attribute.value);
