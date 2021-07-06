@@ -44,6 +44,23 @@ SCORMCloud.prototype.authPing = function (callback) {
 // Course Service
 //
 
+SCORMCloud.prototype.getCourseMetaData = function (courseid, callback) {
+
+    var url = new URL('api?method=rustici.course.getMetadata', this.serviceUrl);
+
+    // The id used to identify this course.
+    if (courseid) url.searchParams.set('courseid', courseid);
+
+    this._request(url, function (error, json) {
+
+        if (error) return callback(error, json);
+
+        let data = json.rsp.package;
+
+        return callback(error, data);
+    });
+}
+
 SCORMCloud.prototype.getCoursePreviewUrl = function (courseid, versionid, redirecturl) {
 
     var url = new URL('api?method=rustici.course.preview', this.serviceUrl);
@@ -143,6 +160,12 @@ SCORMCloud.prototype.setCourseAttributes = function (courseid, attributes, callb
     this._request(url, function (error, json) {
 
         if (error) return callback(error, json);
+
+        // From SCORM Cloud documentation:
+        // (If an attribute is set to it’s existing value, it will not appear in the returned list. Only changed values will appear.) 
+
+        // check for any returned attributes, if there are no changes attributes will be an empty string
+        if (json.rsp.attributes === "") return callback(error, {});
 
         let data = {};
         let attributes = json.rsp.attributes !== "" ? json.rsp.attributes.attribute : [];
